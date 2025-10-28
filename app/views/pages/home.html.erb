@@ -1,2 +1,62 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Banner -->
+<div class="banner-info">
+  Banner for additional Information
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Best Gigs in town</h1>
+    <p>From Webtechnologies to Design and User Experiences.</p>
+    <%= link_to "Search for your Gig!", gigs_path, class: "cta" %>
+  </div>
+</section>
+
+<!-- Jobs Section -->
+<section class="jobs">
+  <h2>What Jobs are you looking for?</h2>
+  <p>We got something for everybody!</p>
+
+  <div class="job-cards">
+
+    <div class="job-card">
+      <h3>Developers</h3>
+      <p>... placeholder text ...</p>
+      <%= link_to "Contact", "#", class: "btn" %>
+    </div>
+
+    <div class="job-card">
+      <h3>Designer</h3>
+      <p>... placeholder text ...</p>
+      <%= link_to "Contact", "#", class: "btn" %>
+    </div>
+
+    <div class="job-card">
+      <h3>Project Manager</h3>
+      <p>... placeholder text ...</p>
+      <%= link_to "Contact", "#", class: "btn" %>
+    </div>
+
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2>Subscribe to your Newsletter and <span>GetYourGig.</span></h2>
+
+  <%= form_with url: "#", method: :post, local: true do |f| %>
+    <div class="newsletter-row">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="newsletter-row">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="newsletter-row">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</section>
