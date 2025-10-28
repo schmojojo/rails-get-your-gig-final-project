@@ -1,0 +1,70 @@
+<!-- Banner -->
+<div class="banner-info">
+  Banner for additional Information
+</div>
+
+<!-- Contact Form Section -->
+<section class="contact">
+  <h2>Leave us a Message</h2>
+  <p>"Get in touch — we'd love to hear from you!"</p>
+
+  <%= form_with url: "#", method: :post, local: true do |f| %>
+    <div class="form-row">
+      <div class="form-field">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div class="form-field">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field full">
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-field full">
+        <%= f.label :message %>
+        <%= f.text_area :message %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</section>
+
+<!-- Mission Block -->
+<section class="about-statement">
+  <p>
+    Our goal is to help talented freelancers spend less time searching for work
+    and more time doing what they do best.
+  </p>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2>Subscribe to your Newsletter and <span>GetYourGig.</span></h2>
+
+  <%= form_with url: "#", method: :post, local: true do |f| %>
+    <div class="newsletter-row">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="newsletter-row">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="newsletter-row">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</section>
