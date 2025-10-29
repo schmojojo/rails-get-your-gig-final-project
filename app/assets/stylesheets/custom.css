@@ -1,0 +1,51 @@
+body {
+  font-family: 'Satoshi', sans-serif;
+}
+
+.btn {
+  border-radius: 50rem;
+}
+
+:root {
+  --purple-dark: #6D28D9;
+  --purple-medium: #8B5CF6;
+  --purple-light: #DDD6FE;
+  --gray-dark: #1F2937;
+  --gray-medium: #4B5563;
+  --gray-light: #D1D5DB;
+  --white: #FFFFFF;
+}
+
+.text-purple-dark { color: var(--purple-dark); }
+.bg-purple-dark { background-color: var(--purple-dark); }
+.border-purple-dark { border-color: var(--purple-dark); }
+.bg-purple-light { background-color: var(--purple-light); }
+
+.btn-purple {
+  background-color: var(--purple-dark);
+  border-color: var(--purple-dark);
+  color: var(--white);
+  font-weight: 500;
+}
+.btn-purple:hover {
+  background-color: var(--purple-medium);
+  border-color: var(--purple-medium);
+  color: var(--white);
+}
+
+.btn-outline-purple {
+  color: var(--purple-dark);
+  border-color: var(--purple-dark);
+  font-weight: 500;
+}
+.btn-outline-purple:hover {
+  background-color: var(--purple-dark);
+  color: var(--white);
+}
+
+.bg-purple-banner { background-color: var(--purple-dark); }
+.text-purple { color: var(--purple-dark); }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
