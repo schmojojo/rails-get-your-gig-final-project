@@ -1,0 +1,197 @@
+@import "config/colors";
+@import "config/fonts";
+@import "config/bootstrap_variables";
+
+
+// body {
+//   font-family: 'Satoshi', sans-serif;
+// }
+
+.btn {
+  border-radius: 50rem;
+  padding: 0.5rem 1.5rem !important;
+}
+
+// :root {
+//   --purple-dark: #6D28D9;
+//   --purple-medium: #8B5CF6;
+//   --purple-light: #DDD6FE;
+//   --gray-dark: #1F2937;
+//   --gray-medium: #4B5563;
+//   --gray-light: #D1D5DB;
+//   --white: #FFFFFF;
+// }
+
+// .text-purple-dark { color: var(--purple-dark); }
+// .bg-purple-dark { background-color: var(--purple-dark); }
+// .border-purple-dark { border-color: var(--purple-dark); }
+// .bg-purple-light { background-color: var(--purple-light); }
+
+// .btn-purple {
+//   background-color: var(--purple-dark);
+//   border-color: var(--purple-dark);
+//   color: var(--white);
+//   font-weight: 500;
+// }
+// .btn-purple:hover {
+//   background-color: var(--purple-medium);
+//   border-color: var(--purple-medium);
+//   color: var(--white);
+// }
+
+// .btn-outline-purple {
+//   color: var(--purple-dark);
+//   border-color: var(--purple-dark);
+//   font-weight: 500;
+// }
+// .btn-outline-purple:hover {
+//   background-color: var(--purple-dark);
+//   color: var(--white);
+// }
+
+.bg-purple-banner { background-color: var(--purple-dark); }
+.text-purple { color: var(--purple-dark); }
+
+// Custom Primary Button styles
+.btn-primary {
+  background-color: $majorelle-blue !important;
+  border-color: $majorelle-blue !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  border-radius: 50rem !important; // optional: fully rounded pill
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: darken($majorelle-blue, 10%) !important;
+    border-color: darken($majorelle-blue, 10%) !important;
+    color: #ffffff !important;
+  }
+}
+
+// Custom Button Outline Primary styles
+.btn-outline-primary {
+  color: $btn-outline-primary-color !important;
+  border: $btn-outline-primary-border-width solid $btn-outline-primary-color !important;
+  border-radius: $btn-pill-radius !important;
+  font-weight: $btn-outline-primary-font-weight !important;
+  font-size: 1.25rem !important;
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    color: #ffffff !important;                        // text becomes white
+    background-color: $btn-outline-primary-color !important; // background fills with primary color
+    border-color: $btn-outline-primary-color !important;     // keep border same
+  }
+}
+
+// Custom Card styles
+.card {
+  border: $card-border !important;
+  border-radius: $card-border-radius !important;
+  box-shadow: $card-box-shadow !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+
+  &:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: $card-box-shadow-hover !important;
+  }
+}
+
+// Custom Badge styles
+.badge {
+  font-size: $badge-font-size !important;
+  font-weight: $badge-font-weight !important;
+  color: $badge-text-color !important;
+  background-color: $badge-bg-color !important;
+  border: $badge-border !important;
+  border-radius: $badge-border-radius !important;
+  padding: $badge-padding-vertical $badge-padding-horizontal !important;
+  display: inline-block !important;
+  line-height: 1 !important;
+
+  &:hover {
+    opacity: 0.9 !important;
+  }
+}
+
+// Nav Item styles
+.navbar .nav-link {
+  font-size: $nav-item-font-size !important;
+  font-weight: $nav-item-font-weight !important;
+  color: $nav-item-color !important;
+  transition: color 0.2s ease, font-weight 0.2s ease, border-bottom 0.2s ease !important;
+
+  &:hover {
+    color: darken($nav-item-color, 10%) !important;
+  }
+
+  &.active, &:active {
+    color: $nav-item-active-color !important;
+    font-weight: $nav-item-active-font-weight !important;
+    border-bottom: $nav-item-active-underline !important;
+  }
+}
+
+// Icon Background styles
+.icon-bg {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 12px !important;
+  background-color: #F2F2F7 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+// Footer Styling
+.footer-section {
+  background-color: $bright-purple !important;
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+  color: white !important;
+
+  h1 {
+    margin-bottom: 4rem !important;
+    margin-top: 4rem;
+    font-family: $headers-font;
+    font-size: 2.5rem;
+    color: $english-violet;
+  }
+
+  .card {
+    border: none !important;
+    border-radius: 12px !important;
+  }
+}
+
+.bottom-footer {
+  color: #FFFFFF !important;
+  background-color: #6E44F8 !important;
+  width: 100vw !important;
+  padding: 1rem 0 !important;
+  text-align: center !important;
+  font-weight: 500 !important;
+  margin-left: calc(-50vw + 50%); // ensures it spans full width even inside container
+}
+.gradient-footer {
+  // margin-top: 10vh;
+  height: 35vh;
+  width: 100vw;
+  background: linear-gradient(to top, #CEC1FD 0%, rgba(206, 193, 253, 0) 100%);
+  position: relative;
+  z-index: 1;
+}
+
+// Background Pattern Styling
+.background-pattern
+{
+  margin-top: 15vh;
+  height: 45vh;
+  width: 100vw;
+  margin-bottom: -25vh;
+  background-color: #ffffff;
+  opacity: 0.8;
+  background-image: radial-gradient(#6E44F8 1.3px, #ffffff 1.3px);
+  background-size: 26px 26px;
+}
