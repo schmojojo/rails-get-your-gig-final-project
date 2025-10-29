@@ -1,62 +1,76 @@
-<!-- Banner -->
-<div class="banner-info">
-  Banner for additional Information
+<div class="position-relative bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1522071901873-411886a10004?ixlib-rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto-format&fit-crop&q=80&w=1170'); min-height: 60vh; display: flex; justify-content: center; align-items: flex-start; padding-top: 15vh; background-size: cover; background-repeat: no-repeat;">
+
+<div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.3);"></div>
+
+  <div class="position-relative bg-white bg-opacity-75 p-4 p-md-5 rounded-3 shadow-lg text-center" style="--bs-bg-opacity: .9;">
+    <h1 class="display-4 fw-bold text-dark">
+      Best gigs in town
+    </h1>
+    <p class="lead text-secondary mt-3">
+      Freelancing opportunities for backend, frontend, design, IT and anytihng tech-related.
+    </p>
+
+    <%= link_to "Search for your Gig", gigs_path, class: "btn btn-purple btn-lg mt-4 shadow" %>
+  </div>
 </div>
 
-<!-- Hero Section -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Best Gigs in town</h1>
-    <p>From Webtechnologies to Design and User Experiences.</p>
-    <%= link_to "Search for your Gig!", gigs_path, class: "cta" %>
+<div class="py-5">
+  <div class="container">
+
+    <div class="text-center col-lg-8 mx-auto">
+      <h2 class="display-5 fw-bold text-dark">
+        How it works
+      </h2>
+      <p class="lead text-secondary mt-3">
+        Your next gig is just a few clicks away.
+      </p>
+    </div>
+
+    <div class="row g-4 mt-5">
+
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="card h-100 shadow-lg border-0 rounded-3 text-center p-4">
+          <div class="w-16 h-16 bg-purple-light text-purple rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 64px; height: 64px;">
+            <i class="fas fa-search fa-2x"></i>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title mt-4 fs-4 fw-bold text-dark">1. Find your gig</h3>
+            <p class="card-text text-secondary mt-3 flex-grow-1">
+              Search and filter through our constantly updated feed of developer, design, and project management gigs.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="card h-100 shadow-lg border-0 rounded-3 text-center p-4">
+          <div class="w-16 h-16 bg-purple-light text-purple rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 64px; height: 64px;">
+            <i class="fas fa-paper-plane fa-2x"></i>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title mt-4 fs-4 fw-bold text-dark">2. Contact & apply</h3>
+            <p class="card-text text-secondary mt-3 flex-grow-1">
+              Use the direct contact information on each listing to apply. No complicated platforms, just real connections.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="card h-100 shadow-lg border-0 rounded-3 text-center p-4">
+          <div class="w-16 h-16 bg-purple-light text-purple rounded-circle d-flex align-items-center justify-content-center mx-auto" style="width: 64px; height: 64px;">
+            <i class="fas fa-rocket fa-2x"></i>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h3 class="card-title mt-4 fs-4 fw-bold text-dark">3. Start working</h3>
+            <p class="card-text text-secondary mt-3 flex-grow-1">
+              Land your next project and start working with top clients. Your new opportunity is waiting. Make it count!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-</section>
-
-<!-- Jobs Section -->
-<section class="jobs">
-  <h2>What Jobs are you looking for?</h2>
-  <p>We got something for everybody!</p>
-
-  <div class="job-cards">
-
-    <div class="job-card">
-      <h3>Developers</h3>
-      <p>... placeholder text ...</p>
-      <%= link_to "Contact", "#", class: "btn" %>
-    </div>
-
-    <div class="job-card">
-      <h3>Designer</h3>
-      <p>... placeholder text ...</p>
-      <%= link_to "Contact", "#", class: "btn" %>
-    </div>
-
-    <div class="job-card">
-      <h3>Project Manager</h3>
-      <p>... placeholder text ...</p>
-      <%= link_to "Contact", "#", class: "btn" %>
-    </div>
-
-  </div>
-</section>
-
-<!-- Newsletter -->
-<section class="newsletter">
-  <h2>Subscribe to your Newsletter and <span>GetYourGig.</span></h2>
-
-  <%= form_with url: "#", method: :post, local: true do |f| %>
-    <div class="newsletter-row">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-
-    <div class="newsletter-row">
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-    </div>
-
-    <div class="newsletter-row">
-      <%= f.submit "Submit" %>
-    </div>
-  <% end %>
-</section>
+</div>
