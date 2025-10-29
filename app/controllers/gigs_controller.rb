@@ -2,7 +2,11 @@ class GigsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @gigs = policy_scope(Gig)   # <-- required by Pundit
+    @gigs = policy_scope(Gig)  # required by Pundit
+
+    if params[:query].present?
+      @gigs = @gigs.search_by_details(params[:query])
+    end
   end
 
   def show
