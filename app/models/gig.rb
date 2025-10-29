@@ -8,11 +8,12 @@ class Gig < ApplicationRecord
 
   pg_search_scope :search_by_details,
     against: {
-      title: 'A',
-      category: 'B',
-      description: 'C'
+      title: 'A',        # highest weight
+      category: 'B',     # medium
+      description: 'C'   # lowest
     },
     using: {
-      tsearch: { prefix: true } # allows partial matches, e.g. 'dev' matches 'developer'
+      tsearch: { prefix: true },     # partial word match
+      trigram: { threshold: 0.2 }    # fuzzy matching (for typos)
     }
 end
