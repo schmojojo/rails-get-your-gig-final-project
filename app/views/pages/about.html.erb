@@ -1,0 +1,80 @@
+<!-- Banner -->
+<div class="banner-info">
+  Banner for additional Information
+</div>
+
+<!-- Hero Image -->
+<section class="about-hero">
+  <%#= image_tag "about_hero.jpg", alt: "Office image" %>
+</section>
+
+<!-- Intro / Team text -->
+<section class="about-intro">
+  <h2>Meet the <span>Team</span></h2>
+  <p class="about-names">Meet Jan, Matthias, Dumitru and Johannes</p>
+
+  <p>
+    We’re a team of freelance tech and design entrepreneurs passionate about empowering independent professionals.
+    Together, we created GetYourGig — a platform that connects freelancers with pre-qualified leads sourced
+    from niche tech channels, both private and public.
+  </p>
+</section>
+
+<!-- Mission statement -->
+<section class="about-statement">
+  <p>
+    Our goal is to help talented freelancers spend less time searching for work and more time doing what they do best.
+  </p>
+</section>
+
+<!-- Team Cards -->
+<section class="team-section">
+  <div class="team-cards">
+
+    <div class="team-card">
+      <%#= image_tag "member_jan.jpg", alt: "Jan" %>
+      <h3>Jan</h3>
+      <p>Short role / one-liner placeholder</p>
+    </div>
+
+    <div class="team-card">
+      <%#= image_tag "member_matthias.jpg", alt: "Matthias" %>
+      <h3>Matthias</h3>
+      <p>Short role / one-liner placeholder</p>
+    </div>
+
+    <div class="team-card">
+      <%#= image_tag "member_dumitru.jpg", alt: "Dumitru" %>
+      <h3>Dumitru</h3>
+      <p>Short role / one-liner placeholder</p>
+    </div>
+
+    <div class="team-card">
+      <%#= image_tag "member_johannes.jpg", alt: "Johannes" %>
+      <h3>Johannes</h3>
+      <p>Short role / one-liner placeholder</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter">
+  <h2>Subscribe to your Newsletter and <span>GetYourGig.</span></h2>
+
+  <%= form_with url: "#", method: :post, local: true do |f| %>
+    <div class="newsletter-row">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="newsletter-row">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+
+    <div class="newsletter-row">
+      <%= f.submit "Submit" %>
+    </div>
+  <% end %>
+</section>
