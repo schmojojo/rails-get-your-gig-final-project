@@ -1,7 +1,7 @@
 class GigSchema < RubyLLM::Schema
   string :title, description: "Job's full title"
   string :description, description: "overview"
-  string :source, description: "platform of origin"
+  string :source, description: "origin url"
   string :category
   string :date, description: "day month year"
 
