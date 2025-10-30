@@ -124,14 +124,15 @@
 
   &:hover {
     color: darken($nav-item-color, 10%) !important;
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     color: $majorelle-blue !important;
   }
 
   &.active, &:active {
     color: $nav-item-active-color !important;
     font-weight: $nav-item-active-font-weight !important;
-    border-bottom: $nav-item-active-underline !important;
+    font-weight: 700 !important;
+    // border-bottom: $nav-item-active-underline !important;
   }
 }
 
