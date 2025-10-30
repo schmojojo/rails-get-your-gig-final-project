@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   patch "/profile",     to: "users#update"
 
 
-  resources :gigs, only: [:index]
+  resources :gigs
   # Defines the root path route ("/")
   # root "posts#index"
 end
