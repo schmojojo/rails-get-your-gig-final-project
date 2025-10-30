@@ -102,5 +102,5 @@ class GigsController < ApplicationController
 
     response = http.request(request)
     @jobs = JSON.parse(response.body)
-
+  end
 end
