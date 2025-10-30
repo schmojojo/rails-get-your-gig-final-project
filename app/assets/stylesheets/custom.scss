@@ -203,3 +203,54 @@
 .navbar-brand {
   color: $majorelle-blue !important;
 }
+
+// Filter Checkboxes
+#filter-checkboxes {
+  padding: 48px;
+  background-color: $deep-purple;
+  color: white;
+  border-radius: 12px;
+
+  h2 {
+    color: white;
+  }
+
+  .form-check {
+    font-size: 1.25rem;
+
+  }
+
+  .form-check-input {
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  // display: flex;
+  // align-items: center;  // vertically centers checkbox + label
+  // justify-content: center; // optional: horizontally center if needed
+  // padding-right: 16px !important;
+  background-color: white;
+  border-radius: 0.25rem;
+  position: relative;
+  appearance: none; // remove default styling
+
+
+  &:checked {
+    background-color: white;
+    border-color: $majorelle-blue;
+    border: 2px;
+  }
+
+  &:checked::after {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free"; // or your FA version
+    font-weight: 900;        // solid icon
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $majorelle-blue; // your check color
+    font-size: 1rem;
+  }
+}
+
+}
