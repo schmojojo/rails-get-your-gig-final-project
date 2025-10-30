@@ -4,7 +4,7 @@ class GigsController < ApplicationController
   require 'uri'
   require 'json'
 
-  JOBS = []
+
 
   SYSTEM_PROMPT = <<-PROMPT
 
@@ -12,7 +12,7 @@ class GigsController < ApplicationController
 
   I am a beginner file clerck who wants to filter out a large jobs list into programming jobs only.
 
-  Help me select all the jobs from a jobs list that are only programming-related, filter out '\n\n' from (description:) and shorten it, and display them as an array of Json objects.
+  Help me select all the jobs from a jobs list that are only programming-related, filter out '\n\n' from (Description:) and shorten it, and display them as an array of Json objects.
 
   Answer concisely in Markdown.
 
@@ -64,8 +64,21 @@ class GigsController < ApplicationController
 
    def ai_create
     @gigs = Gig.all
+    @gig = Gig.new
     @ruby_llm_chat = RubyLLM.chat
-    response = @ruby_llm_chat.with_instructions(instructions).with_schema(GigSchema).ask(@gigs)
+    response = @ruby_llm_chat.with_instructions(instructions).with_schema(GigSchema).ask(@gig)
+    raise
+    # gigs_json = response.content
+    # gigs_json["gigs"].each do |gig|
+    #   @gig = Gig.create!(
+    #     title: gig["title"],
+    #     description: gig["description"],
+    #     contact: gig["contact"],
+    #     source: gig["source"],
+    #     date: gig["date"],
+    #     category: gig["category"]
+    #   )
+    # end
   end
 
 
@@ -78,8 +91,9 @@ class GigsController < ApplicationController
 
   def create_jobs
     parsing
+    @ai_jobs = []
     @jobs["data"].each do |job|
-     JOBS << Gig.new(
+     @ai_jobs << Gig.new(
         title: job["job_title"],
         description: job["description"],
         contact: (job["final_url"] || job["company_object"]["linkedin_url"] || job["source_url"]),
@@ -107,8 +121,17 @@ class GigsController < ApplicationController
     @jobs = JSON.parse(response.body)
   end
 
+   def job_context
+    text = "here's the info about the jobs in the list:"
+    create_jobs
+    @ai_jobs.each do |job|
+      text += " Title: #{job.title}, Description: #{job.description} Date: #{job.date}, Source: #{job.source}, Category: #{job.category}, Contact: #{job.contact}"
+    end
+    text
+  end
+
   def instructions
-    [SYSTEM_PROMPT, create_jobs].join("\n\n")
+    [SYSTEM_PROMPT, job_context].join("\n\n")
   end
 
 end
