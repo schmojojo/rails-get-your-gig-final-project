@@ -16,6 +16,24 @@
     </div>
   </div>
   <div class="m-5 pb-5"></div>
+
+  <!-- Filter Section -->
+  <div id="filter-checkboxes" class="card text-center my-5">
+    <h2 class="mb-4 fw-semibold">Filter your Gigs:</h2>
+
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <% categories = ["Frontend", "Backend", "Fullstack", "Design", "IT", "DevOps", "Data", "Marketing"] %>
+
+      <% categories.each do |category| %>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" id="filter_<%= category.downcase %>" name="categories[]" value="<%= category %>">
+          <label class="form-check-label" for="filter_<%= category.downcase %>"><%= category %></label>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="m-5 pb-5"></div>
+
   <!-- Gigs List -->
   <% if @gigs.any? %>
     <div class="row">
