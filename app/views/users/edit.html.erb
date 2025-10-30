@@ -1,20 +1,74 @@
-<h1>Edit Profile</h1>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 mx-auto">
+      <!-- Profile Information Card -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+          <h2 class="card-title mb-4">Personal Information</h2>
 
-<%= form_with model: current_user, url: profile_path, method: :patch do |f| %>
-  <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+          <%= simple_form_for(current_user, url: profile_path, method: :patch) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          input_html: { class: "form-control-lg" },
+                          wrapper_html: { class: "mb-3" } %>
+
+              <%= f.input :last_name,
+                          required: true,
+                          input_html: { class: "form-control-lg" },
+                          wrapper_html: { class: "mb-3" } %>
+
+              <%= f.input :email,
+                          required: true,
+                          input_html: { autocomplete: "email", class: "form-control-lg" },
+                          wrapper_html: { class: "mb-3" } %>
+            </div>
+
+            <div class="form-actions mt-4 d-flex gap-2">
+              <%= f.button :submit, "Save Changes", class: "btn btn-primary btn-lg flex-grow-1" %>
+              <%= link_to "Cancel", profile_path, class: "btn btn-secondary btn-lg" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- Password Card -->
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h4 class="card-title mb-3">Your Password</h4>
+
+          <div class="d-flex align-items-center mb-3">
+            <div class="flex-grow-1">
+              <input type="password" class="form-control form-control-lg" value="••••••••••••" readonly id="passwordDisplay">
+            </div>
+            <button type="button" class="btn btn-outline-secondary ms-2" onclick="togglePassword()">
+              <i class="bi bi-eye" id="toggleIcon"></i>
+            </button>
+          </div>
+
+          <%= link_to "Change Password", edit_password_path, class: "btn btn-outline-primary w-100" %>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
+<script>
+function togglePassword() {
+  const passwordInput = document.getElementById('passwordDisplay');
+  const toggleIcon = document.getElementById('toggleIcon');
 
-  <div>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-
-  <%= f.submit "Save" %>
-<% end %>
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    toggleIcon.classList.remove('bi-eye');
+    toggleIcon.classList.add('bi-eye-slash');
+  } else {
+    passwordInput.type = 'password';
+    toggleIcon.classList.remove('bi-eye-slash');
+    toggleIcon.classList.add('bi-eye');
+  }
+}
+</script>
