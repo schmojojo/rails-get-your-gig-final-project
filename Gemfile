@@ -49,12 +49,14 @@ gem "bootsnap", require: false
 
 gem "bootstrap", "~> 5.3"
 gem "devise"
+gem "pundit"
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "ruby_llm", "~> 1.6.4"
 gem 'ruby_llm-schema'
+gem 'pg_search'
 
 group :development, :test do
   gem "dotenv-rails"

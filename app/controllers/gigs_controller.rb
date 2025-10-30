@@ -17,10 +17,50 @@ class GigsController < ApplicationController
   PROMPT
 
   def index
-    @gigs = Gig.all.order(date: :desc)
+    @gigs = policy_scope(Gig)  # required by Pundit
+
+    if params[:query].present?
+      @gigs = @gigs.search_by_details(params[:query])
+    end
   end
 
-  def ai_create
+  def show
+    @gig = Gig.find(params[:id])
+    authorize @gig              # <-- call policy show?
+  end
+
+  def new
+    @gig = Gig.new
+    authorize @gig              # <-- call policy new?/create?
+  end
+
+  def create
+    @gig = Gig.new(gig_params)
+    authorize @gig              # <-- must come BEFORE save
+    @gig.save!
+    redirect_to @gig
+  end
+
+  def edit
+    @gig = Gig.find(params[:id])
+    authorize @gig              # <-- update?
+  end
+
+  def update
+    @gig = Gig.find(params[:id])
+    authorize @gig
+    @gig.update!(gig_params)
+    redirect_to @gig
+  end
+
+  def destroy
+    @gig = Gig.find(params[:id])
+    authorize @gig
+    @gig.destroy
+    redirect_to gigs_path
+  end
+
+   def ai_create
     @ruby_llm_chat = RubyLLM.chat
     response = @ruby_llm_chat.with_instructions(SYSTEM_PROMPT).with_schema(GigSchema).ask(@gig)
     @gigs = Gig.all
@@ -28,9 +68,12 @@ class GigsController < ApplicationController
   end
 
 
-
-
   private
+
+  def gig_params
+    params.require(:gig).permit(:title, :contact, :description, :source, :category, :date)
+  end
+
 
   def create_jobs
     parsing
@@ -59,6 +102,5 @@ class GigsController < ApplicationController
 
     response = http.request(request)
     @jobs = JSON.parse(response.body)
-  end
 
 end
