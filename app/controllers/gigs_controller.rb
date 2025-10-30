@@ -98,7 +98,7 @@ class GigsController < ApplicationController
     request = Net::HTTP::Post.new(url)
     request["Content-Type"] = 'application/json'
     request["Authorization"] = ENV["BEARER"]
-    request.body = "{\"page\": 0,\n  \"limit\": 25,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
+    request.body = "{\"page\": 0,\n  \"limit\": 5,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
 
     response = http.request(request)
     @jobs = JSON.parse(response.body)
