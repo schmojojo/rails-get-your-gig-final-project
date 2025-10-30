@@ -66,9 +66,6 @@ class GigsController < ApplicationController
     @gigs = Gig.all
     @ruby_llm_chat = RubyLLM.chat
     response = @ruby_llm_chat.with_instructions(instructions).with_schema(GigSchema).ask(@gigs)
-    raise
-
-
   end
 
 
