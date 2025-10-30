@@ -40,3 +40,16 @@ sources = ["Upwork", "Freelancer", "Fiverr", "RemoteOK", "WeWorkRemotely", "Link
 end
 
 puts "✅ 18 freelance gigs created!"
+
+puts "Creating admin user..."
+
+admin_user = User.find_or_initialize_by(email: 'admin@getyourgigs.work')
+admin_user.password = 'admin321'
+admin_user.password_confirmation = 'admin321'
+admin_user.admin = true
+
+if admin_user.save!
+  puts "✅ Admin user 'admin@getyourgigs.work' created successfully."
+else
+  puts "❌ Error creating admin user: #{admin_user.errors.full_messages.join(', ')}"
+end
