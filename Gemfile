@@ -57,6 +57,7 @@ gem "sassc-rails"
 gem "ruby_llm", "~> 1.6.4"
 gem 'ruby_llm-schema'
 gem 'pg_search'
+gem "solid_queue"
 
 group :development, :test do
   gem "dotenv-rails"

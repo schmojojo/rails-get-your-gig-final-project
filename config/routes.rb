@@ -18,7 +18,11 @@ Rails.application.routes.draw do
   get "/profile/edit",  to: "users#edit",   as: :edit_profile
   patch "/profile",     to: "users#update"
 
-
+  #bookmark Routes
+  get "/profile",       to: "bookmarks#new"
+  post "/profile",      to: "bookmarks#create"
+  delete "/profile",    to: "bookmarks#destroy"
+  
   resources :gigs
   # Defines the root path route ("/")
   # root "posts#index"
