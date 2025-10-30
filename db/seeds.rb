@@ -33,7 +33,7 @@ sources = ["Upwork", "Freelancer", "Fiverr", "RemoteOK", "WeWorkRemotely", "Link
     title: title,
     contact: Faker::Internet.email,
     description: Faker::Lorem.paragraph(sentence_count: 4),
-    source: sources.sample,
+    source: "#",
     category: category,
     date: Faker::Date.between(from: Date.today - 7, to: Date.today)
   )
