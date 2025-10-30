@@ -3,11 +3,12 @@ class GigSchema < RubyLLM::Schema
   string :description, description: "overview"
   string :source, description: "platform of origin"
   string :category
-  date :date
+  string :date, description: "day month year"
 
   string :contact do
-   string :name
-   string :email
+   string :name, required: false
+   string :email, required: false
    string :phone, required: false
+   string :url
   end
 end
