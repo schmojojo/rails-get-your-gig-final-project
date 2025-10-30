@@ -124,6 +124,8 @@
 
   &:hover {
     color: darken($nav-item-color, 10%) !important;
+    font-weight: 700 !important;
+    color: $majorelle-blue !important;
   }
 
   &.active, &:active {
@@ -138,6 +140,7 @@
   width: 80px !important;
   height: 80px !important;
   border-radius: 12px !important;
+  color: $deep-purple !important;
   background-color: #F2F2F7 !important;
   display: flex !important;
   align-items: center !important;
@@ -194,4 +197,9 @@
   opacity: 0.8;
   background-image: radial-gradient(#6E44F8 1.3px, #ffffff 1.3px);
   background-size: 26px 26px;
+}
+
+// Brand Logo @Navbar
+.navbar-brand {
+  color: $majorelle-blue !important;
 }
