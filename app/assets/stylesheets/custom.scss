@@ -189,7 +189,7 @@
 // Background Pattern Styling
 .background-pattern
 {
-  margin-top: 15vh;
+  margin-top: -15vh;
   height: 45vh;
   width: 100vw;
   margin-bottom: -25vh;
@@ -197,7 +197,19 @@
   opacity: 0.8;
   background-image: radial-gradient(#6E44F8 1.3px, #ffffff 1.3px);
   background-size: 26px 26px;
+
 }
+.footer-content {
+  z-index: 1 !important;
+  position: relative;
+}
+
+// All Content (Just for z-index issues)
+.all-content {
+  z-index: 10 !important;
+  position: relative;
+}
+
 
 // Brand Logo @Navbar
 .navbar-brand {
