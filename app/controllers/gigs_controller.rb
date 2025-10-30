@@ -24,6 +24,11 @@ class GigsController < ApplicationController
     if params[:query].present?
       @gigs = @gigs.search_by_details(params[:query])
     end
+
+    # Filter by selected categories if any
+    if params[:categories].present?
+      @gigs = @gigs.where(category: params[:categories])
+    end
   end
 
   def show
