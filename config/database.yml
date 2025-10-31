@@ -77,11 +77,8 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-# production:
-#   <<: *default
-#   database: rails_get_your_gig_final_project_production
-#   username: rails_get_your_gig_final_project
-#   password: <%= ENV["RAILS_GET_YOUR_GIG_FINAL_PROJECT_DATABASE_PASSWORD"] %>
 production:
-url: <%= ENV['DATABASE_URL'] %>
-sslmode: require
+  <<: *default
+  database: rails_get_your_gig_final_project_production
+  username: rails_get_your_gig_final_project
+  password: <%= ENV["RAILS_GET_YOUR_GIG_FINAL_PROJECT_DATABASE_PASSWORD"] %>
