@@ -8,12 +8,9 @@ class GigsController < ApplicationController
 
   SYSTEM_PROMPT = <<-PROMPT
 
-  you are an expert file clerck
-
+  You are an expert file clerck
   I am a beginner file clerck who wants to filter out a large jobs list into programming jobs only.
-
   Help me select all the jobs from a jobs list that have either a title, description or category related to the field of technology, filter out '\n\n' from (Description:) and shorten it, and display them as an array of Json objects.
-
   Answer concisely in Markdown.
 
   PROMPT
@@ -44,21 +41,27 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(gig_params)
     authorize @gig              # <-- must come BEFORE save
-    @gig.save!
-    redirect_to @gig
+    if @gig.save
+      redirect_to gigs_path, notice: "Gig was successfully created."
+    else
+      render :new, status: :unprocessable_content
+    end
   end
 
   def edit
     @gig = Gig.find(params[:id])
-    authorize @gig              # <-- update?
+    authorize @gig
   end
 
-  def update
-    @gig = Gig.find(params[:id])
-    authorize @gig
-    @gig.update!(gig_params)
-    redirect_to @gig
+def update
+  @gig = Gig.find(params[:id])
+  authorize @gig
+  if @gig.update(gig_params)
+    redirect_to gigs_path, notice: "Gig was successfully updated."
+  else
+    render :edit, status: :unprocessable_content
   end
+end
 
   def destroy
     @gig = Gig.find(params[:id])
