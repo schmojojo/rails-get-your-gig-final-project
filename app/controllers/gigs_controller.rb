@@ -8,12 +8,9 @@ class GigsController < ApplicationController
 
   SYSTEM_PROMPT = <<-PROMPT
 
-  you are an expert file clerck
-
+  You are an expert file clerck
   I am a beginner file clerck who wants to filter out a large jobs list into programming jobs only.
-
-  Help me select all the jobs from a jobs list that are only programming-related, filter out '\n\n' from (Description:) and shorten it, and display them as an array of Json objects.
-
+  Help me select all the jobs from a jobs list that have either a title, description or category related to the field of technology, filter out '\n\n' from (Description:) and shorten it, and display them as an array of Json objects.
   Answer concisely in Markdown.
 
   PROMPT
@@ -44,21 +41,27 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(gig_params)
     authorize @gig              # <-- must come BEFORE save
-    @gig.save!
-    redirect_to @gig
+    if @gig.save
+      redirect_to gigs_path, notice: "Gig was successfully created."
+    else
+      render :new, status: :unprocessable_content
+    end
   end
 
   def edit
     @gig = Gig.find(params[:id])
-    authorize @gig              # <-- update?
+    authorize @gig
   end
 
-  def update
-    @gig = Gig.find(params[:id])
-    authorize @gig
-    @gig.update!(gig_params)
-    redirect_to @gig
+def update
+  @gig = Gig.find(params[:id])
+  authorize @gig
+  if @gig.update(gig_params)
+    redirect_to gigs_path, notice: "Gig was successfully updated."
+  else
+    render :edit, status: :unprocessable_content
   end
+end
 
   def destroy
     @gig = Gig.find(params[:id])
@@ -67,24 +70,24 @@ class GigsController < ApplicationController
     redirect_to gigs_path
   end
 
-   def ai_create
-    @gigs = Gig.all
-    @gig = Gig.new
-    @ruby_llm_chat = RubyLLM.chat
-    response = @ruby_llm_chat.with_instructions(instructions).with_schema(GigSchema).ask(@gig)
-    raise
-    # gigs_json = response.content
-    # gigs_json["gigs"].each do |gig|
-    #   @gig = Gig.create!(
-    #     title: gig["title"],
-    #     description: gig["description"],
-    #     contact: gig["contact"],
-    #     source: gig["source"],
-    #     date: gig["date"],
-    #     category: gig["category"]
-    #   )
-    # end
-  end
+  #  def ai_create
+  #   @gigs = Gig.all
+  #   @gig = Gig.new
+  #   @ruby_llm_chat = RubyLLM.chat
+  #   response = @ruby_llm_chat.with_instructions(instructions).with_schema(GigSchema).ask(@gig)
+  #   raise
+  #   gigs_json = response.content
+  #   gigs_json["gigs"].each do |gig|
+  #     @gig = Gig.create!(
+  #       title: gig["title"],
+  #       description: gig["description"],
+  #       contact: gig["contact"],
+  #       source: gig["source"],
+  #       date: gig["date"],
+  #       category: gig["category"]
+  #     )
+  #   end
+  # end
 
 
   private
@@ -120,7 +123,7 @@ class GigsController < ApplicationController
     request = Net::HTTP::Post.new(url)
     request["Content-Type"] = 'application/json'
     request["Authorization"] = ENV["BEARER"]
-    request.body = "{\"page\": 0,\n  \"limit\": 5,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
+    request.body = "{\"page\": 0,\n  \"limit\": 10,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
 
     response = http.request(request)
     @jobs = JSON.parse(response.body)

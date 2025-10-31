@@ -98,6 +98,21 @@
   }
 }
 
+.card-purple {
+  padding: 48px;
+  background-color: $deep-purple;
+  color: white;
+  border-radius: 12px;
+
+  h2, h3 {
+    color: white;
+  }
+  i {
+    font-size: 2rem;
+    padding-bottom: 48px;
+  }
+}
+
 // Custom Badge styles
 .badge {
   font-size: $badge-font-size !important;
@@ -120,18 +135,19 @@
   font-size: $nav-item-font-size !important;
   font-weight: $nav-item-font-weight !important;
   color: $nav-item-color !important;
-  transition: color 0.2s ease, font-weight 0.2s ease, border-bottom 0.2s ease !important;
+  transition: border-bottom 0.1s ease !important;
 
   &:hover {
     color: darken($nav-item-color, 10%) !important;
-    font-weight: 700 !important;
+    font-weight: 500 !important;
     color: $majorelle-blue !important;
   }
 
   &.active, &:active {
     color: $nav-item-active-color !important;
     font-weight: $nav-item-active-font-weight !important;
-    border-bottom: $nav-item-active-underline !important;
+    font-weight: 700 !important;
+    // border-bottom: $nav-item-active-underline !important;
   }
 }
 
@@ -179,7 +195,7 @@
 }
 .gradient-footer {
   // margin-top: 10vh;
-  height: 35vh;
+  height: 25vh;
   width: 100vw;
   background: linear-gradient(to top, #CEC1FD 0%, rgba(206, 193, 253, 0) 100%);
   position: relative;
@@ -189,7 +205,7 @@
 // Background Pattern Styling
 .background-pattern
 {
-  margin-top: 15vh;
+  margin-top: -15vh;
   height: 45vh;
   width: 100vw;
   margin-bottom: -25vh;
@@ -197,12 +213,26 @@
   opacity: 0.8;
   background-image: radial-gradient(#6E44F8 1.3px, #ffffff 1.3px);
   background-size: 26px 26px;
+
 }
+.footer-content {
+  z-index: 1 !important;
+  position: relative;
+}
+
+// All Content (Just for z-index issues)
+.all-content {
+  z-index: 10 !important;
+  position: relative;
+}
+
 
 // Brand Logo @Navbar
 .navbar-brand {
   color: $majorelle-blue !important;
 }
+
+
 
 // Filter Checkboxes
 #filter-checkboxes {
@@ -253,4 +283,12 @@
   }
 }
 
+}
+
+// No Gigs Found Card
+#card-no-gigs {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  align-self: center;
 }

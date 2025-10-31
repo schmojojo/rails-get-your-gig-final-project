@@ -17,8 +17,18 @@ Rails.application.routes.draw do
   get "/profile",       to: "users#show",   as: :profile
   get "/profile/edit",  to: "users#edit",   as: :edit_profile
   patch "/profile",     to: "users#update"
+  delete "/profile",                 to: "users#destroy"          # <- NEU
 
 
+  # Password Routes
+  get "/profile/password/edit",  to: "users#edit_password",   as: :edit_password
+  patch "/profile/password",     to: "users#update_password", as: :update_password
+
+  #bookmark Routes
+  get "/profile",       to: "bookmarks#new"
+  post "/profile",      to: "bookmarks#create"
+  delete "/profile",    to: "bookmarks#destroy"
+  
   resources :gigs
   # Defines the root path route ("/")
   # root "posts#index"
