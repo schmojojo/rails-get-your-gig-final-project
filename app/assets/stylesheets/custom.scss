@@ -98,6 +98,21 @@
   }
 }
 
+.card-purple {
+  padding: 48px;
+  background-color: $deep-purple;
+  color: white;
+  border-radius: 12px;
+
+  h2, h3 {
+    color: white;
+  }
+  i {
+    font-size: 2rem;
+    padding-bottom: 48px;
+  }
+}
+
 // Custom Badge styles
 .badge {
   font-size: $badge-font-size !important;
@@ -217,6 +232,8 @@
   color: $majorelle-blue !important;
 }
 
+
+
 // Filter Checkboxes
 #filter-checkboxes {
   padding: 48px;
@@ -266,4 +283,12 @@
   }
 }
 
+}
+
+// No Gigs Found Card
+#card-no-gigs {
+  height: 200px;
+  width: 200px;
+  background-color: white;
+  align-self: center;
 }
