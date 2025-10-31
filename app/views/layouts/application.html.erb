@@ -20,9 +20,12 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
-    <%= yield %>
 
-  <footer class="">
+    <div class="all-content">
+    <%= yield %>
+    </div>
+
+  <footer class="footer-content">
       <%= render "shared/prefooter" %>
       <div class="gradient-footer"></div>
       <%= render "shared/footer" %>

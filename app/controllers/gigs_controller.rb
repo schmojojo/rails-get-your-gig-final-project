@@ -4,10 +4,6 @@ class GigsController < ApplicationController
   require 'uri'
   require 'json'
 
-
-
-
-
   def index
     @gigs = policy_scope(Gig)  # required by Pundit
 
@@ -34,21 +30,27 @@ class GigsController < ApplicationController
   def create
     @gig = Gig.new(gig_params)
     authorize @gig              # <-- must come BEFORE save
-    @gig.save!
-    redirect_to @gig
+    if @gig.save
+      redirect_to gigs_path, notice: "Gig was successfully created."
+    else
+      render :new, status: :unprocessable_content
+    end
   end
 
   def edit
     @gig = Gig.find(params[:id])
-    authorize @gig              # <-- update?
+    authorize @gig
   end
 
-  def update
-    @gig = Gig.find(params[:id])
-    authorize @gig
-    @gig.update!(gig_params)
-    redirect_to @gig
+def update
+  @gig = Gig.find(params[:id])
+  authorize @gig
+  if @gig.update(gig_params)
+    redirect_to gigs_path, notice: "Gig was successfully updated."
+  else
+    render :edit, status: :unprocessable_content
   end
+end
 
   def destroy
     @gig = Gig.find(params[:id])
