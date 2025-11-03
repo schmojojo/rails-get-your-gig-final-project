@@ -1,4 +1,4 @@
-class ChangeAdminDefaultOnUsers < ActiveRecord::Migration[7.1]
+class InstallSolidQueue < ActiveRecord::Migration[7.1]
   def change
     create_table "solid_queue_blocked_executions", force: :cascade do |t|
     t.bigint "job_id", null: false
