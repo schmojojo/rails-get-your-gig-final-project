@@ -59,14 +59,22 @@ end
     redirect_to gigs_path
   end
 
-  def ai_create
-    @gigs = Gig.all
-    @gig = Gig.new
-    authorize @gig
-    @ruby_llm_chat = RubyLLM.chat
-    AiCreateJob.perform_later(instructions)
-  end
+  def fetch_jobs
+    url = URI("https://api.theirstack.com/v1/jobs/search")
 
+    http = Net::HTTP.new(url.host, url.port)
+    http.use_ssl = true
+
+    request = Net::HTTP::Post.new(url)
+    request["Content-Type"] = 'application/json'
+    request["Authorization"] = ENV["BEARER"]
+    request.body = "{\"page\": 0,\n  \"limit\": 25,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
+    p request
+    response = http.request(request)
+    p response
+    gigs = JSON.parse(response.body)["data"]
+    raise
+  end
 
   private
 
