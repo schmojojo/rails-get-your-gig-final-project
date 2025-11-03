@@ -7,95 +7,104 @@
   </div>
   <div class="m-5"></div>
 
-<% if policy(Gig).new? %>
-    <div class="text-center mb-5">
-      <%= link_to 'Create new Gig', new_gig_path, class: 'btn btn-success btn-lg' %>
-    </div>
+  <%= turbo_frame_tag "new_gig" do %>
+    <% if policy(Gig).new? %>
+      <div class="text-center mb-5">
+        <%= link_to 'Create new Gig', new_gig_path, class: 'btn btn-success btn-lg' %>
+      </div>
+    <% end %>
   <% end %>
 
-  <div class="row justify-content-center mb-4">
-    <div class="col-sm-8">
-      <%= form_with url: gigs_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query, params[:query], class: "form-control me-2", placeholder: "Find a gig" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
+<%= form_with url: gigs_path,
+                method: :get,
+                class: "mb-5",
+                data: {
+                  controller: "gigs-filter",
+                  turbo_frame: "gigs-list"
+                } do %>
+
+    <div class="row justify-content-center mb-4">
+      <div class="col-sm-8">
+        <div class="d-flex">
+          <%= text_field_tag :query,
+                             params[:query],
+                             class: "form-control me-2",
+                             placeholder: "Find a gig" %>
+
+          <%= submit_tag "Search", class: "btn btn-primary", name: nil %>
+        </div>
+      </div>
     </div>
-  </div>
 
-
-  <!-- Filter Section -->
-  <div id="filter-checkboxes" class="text-center my-5" data-controller="gigs">
-    <h2 class="mb-4 fw-semibold">Filter your Gigs:</h2>
-
+    <div id="filter-checkboxes" class="text-center my-5">
+      <h2 class="mb-4 fw-semibold">Filter your Gigs:</h2>
       <div class="d-flex flex-wrap justify-content-center gap-3">
-        <% categories = ["Frontend", "Backend", "Full Stack", "UX/UI Design", "IT", "DevOps", "Data", "Marketing"] %>
+        <% categories = ["Frontend", "Backend", "Full Stack", "Design", "IT", "DevOps", "Data", "Marketing"] %>
 
         <% categories.each do |category| %>
           <div class="form-check form-check-inline">
-            <input class="form-check-input filter-checkbox"
-                  type="checkbox"
-                  id="filter_<%= category.downcase %>"
-                  value="<%= category %>">
-                  <%= "checked" if params[:categories]&.include?(category) %>
-            <label class="form-check-label" for="filter_<%= category.downcase %>"><%= category %></label>
+            <%= check_box_tag "categories[]",
+                              category,
+                              params[:categories]&.include?(category),
+                              id: "filter_#{category.downcase}",
+                              class: "form-check-input filter-checkbox",
+                              data: { action: "change->gigs-filter#submit" } %>
+            <%= label_tag "filter_#{category.downcase}", category, class: "form-check-label" %>
           </div>
         <% end %>
       </div>
-  </div>
-
-
-  <!-- Gigs List -->
-  <turbo-frame id="gigs-list">
-  <div class="m-5 pb-5"></div>
-
-  <% if @gigs.any? %>
-    <div class="row">
-      <% @gigs.each do |gig| %>
-        <div class="col-md-4 mb-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body d-flex flex-column">
-              <h5 class="card-title mb-2">
-                <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none" target="_blank">
-                  <%= gig.title %>
-                </a>
-              </h5>
-
-              <div class="mb-2">
-                <span class="badge rounded-pill bg-primary"><%= gig.category %></span>
-              </div>
-
-              <p class="card-text flex-grow-1"><%= truncate(gig.description, length: 150) %></p>
-
-              <a href="mailto:<%= gig.contact %>" class="btn btn-outline-primary rounded-pill mb-2">
-                Contact
-              </a>
-
-              <small class="text-muted">
-                <i class="fa fa-calendar-alt"></i>
-                <%= gig.date.strftime("%B %d, %Y") %>
-              </small>
-
-              <% if policy(gig).edit? %>
-                <div class="mt-3 border-top pt-3 d-flex justify-content-end gap-2">
-                  <%# <%= link_to 'Edit', edit_gig_path(gig), class: 'btn btn-sm btn-outline-secondary' %>
-                  <%= link_to 'Delete', gig_path(gig), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger' %>
-                </div>
-              <% end %>
-
-            </div>
-          </div>
-        </div>
-      <% end %>
     </div>
-  <% else %>
-    <div class="text-center my-5">
-      <p class="text-muted fs-5">
-        <i class="fa fa-search"></i>
-        No gigs found for "<%= params[:query] %>".
-      </p>
-    </div>
-    <div class="m-5 pb-5"></div>
-    <div class="m-5 pb-5"></div>
   <% end %>
-</div>
-</turbo-frame>
+
+
+  <turbo-frame id="gigs-list">
+    <div class="m-5 pb-5"></div>
+
+    <% if @gigs.any? %>
+      <div class="row">
+        <% @gigs.each do |gig| %>
+
+          <%= turbo_frame_tag dom_id(gig), class: "col-md-4 mb-4" do %>
+            <div class="card shadow-sm h-100">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title mb-2">
+                  <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none">
+                    <%= gig.title %>
+                  </a>
+                </h5>
+
+                <div class="mb-2">
+                  <span class="badge rounded-pill bg-primary"><%= gig.category %></span>
+                </div>
+
+                <p class="card-text flex-grow-1"><%= truncate(gig.description, length: 150) %></p>
+
+                <a href="mailto:<%= gig.contact %>" class="btn btn-outline-primary rounded-pill mb-2">
+                  Contact
+                </a>
+
+                <small class="text-muted">
+                  <i class="fa fa-calendar-alt"></i>
+                  <% if gig.date.present? %>
+                    <%= gig.date.strftime("%B %d, %Y") %>
+                  <% end %>
+                </small>
+
+                <% if policy(gig).edit? %>
+                  <div class="mt-3 border-top pt-3 d-flex justify-content-end gap-2">
+                    <%= link_to 'Edit', edit_gig_path(gig), class: 'btn btn-sm btn-outline-secondary' %>
+
+                    <%= link_to 'Delete', gig_path(gig), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this?' }, class: 'btn btn-sm btn-outline-danger' %>
+
+                  </div>
+                <% end %>
+              </div> </div> <% end %> <% end %> </div> <% else %>
+      <div class="text-center my-5">
+        <p class="text-muted fs-5">
+          <i class="fa fa-search"></i>
+          No gigs found.
+        </p>
+      </div>
+      <div class="m-5 pb-5"></div>
+      <div class="m-5 pb-5"></div>
+    <% end %> </turbo-frame> </div> ```
