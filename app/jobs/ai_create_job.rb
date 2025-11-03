@@ -1,3 +1,4 @@
+require 'ostruct'
 class AiCreateJob < ApplicationJob
   queue_as :default
 
@@ -17,7 +18,7 @@ class AiCreateJob < ApplicationJob
     jobs = fetch_jobs
     ai_jobs = build_ai_jobs(jobs)
     instructions = build_instructions(ai_jobs)
-    response = RubyLLM.chat.with_instructions(instructions).with_schema(::GigSchema).ask(nil)
+    response = RubyLLM.chat.with_instructions(instructions).with_schema(::GigSchema).ask("filter these jobs to the relevant gigs")
 
     gigs_json = response.content
     gigs_json["gigs"].each do |gig|
@@ -42,21 +43,20 @@ class AiCreateJob < ApplicationJob
     request["Content-Type"] = 'application/json'
     request["Authorization"] = ENV["BEARER"]
     request.body = "{\"page\": 0,\n  \"limit\": 25,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
-    p request
     response = http.request(request)
-    p response
-    JSON.parse(response.body)["data"]
+    results = JSON.parse(response.body)["data"]
+    return results
   end
 
   def build_ai_jobs(jobs)
-    jobs do |job|
-      Gig.new(
+    jobs.map do |job|
+      OpenStruct.new(
         title: job["job_title"],
         description: job["description"],
         contact: (job["final_url"] || job["company_object"]["linkedin_url"] || job["source_url"]),
         source: job["source_url"],
         date: job["date_posted"],
-        category: (job["technology_slugs"][0] || "misc.")
+        category: Array(job["technology_slugs"]).compact.first || "misc."
       )
     end
   end
