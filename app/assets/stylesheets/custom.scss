@@ -131,6 +131,12 @@
     transform: translateY(-3px) !important;
     box-shadow: $card-box-shadow-hover !important;
   }
+
+}
+
+.card-home {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
 }
 
 .card-purple {
@@ -138,6 +144,8 @@
   background-color: $deep-purple;
   color: white;
   border-radius: 12px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 
   h2, h3 {
     color: white;
