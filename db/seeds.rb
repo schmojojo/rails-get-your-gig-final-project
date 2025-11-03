@@ -43,6 +43,7 @@ puts "Creating freelance gigs..."
 
 # Creating 18 Real Jobs manually
 
+# Number 1
 Gig.create!(
   title: "SENIOR DEVOPS ENGINEER (M/W/D)",
   contact: Faker::Internet.email,
@@ -52,6 +53,7 @@ Gig.create!(
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 2
 Gig.create!(
   title: "Technology Lead ERP & Billing (m/w/d)",
   contact: Faker::Internet.email,
@@ -61,6 +63,7 @@ Gig.create!(
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 3
 Gig.create!(
   title: "Full Stack Developer",
   contact: Faker::Internet.email,
@@ -70,6 +73,7 @@ Gig.create!(
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 4
 Gig.create!(
   title: "Software Developer Embedded Systems",
   contact: Faker::Internet.email,
@@ -79,6 +83,7 @@ Gig.create!(
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 5
 Gig.create!(
   title: "DevOps Engineer (m/w/d)",
   contact: Faker::Internet.email,
@@ -88,6 +93,7 @@ Gig.create!(
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 6
 Gig.create!(
   title: "Frontend Developer (Angular)",
   contact: Faker::Internet.email,
@@ -96,6 +102,37 @@ Gig.create!(
   category: "Frontend",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
+
+# Number 7
+Gig.create!(
+  title: "UX/UI-Designer (d/m/w)",
+  contact: Faker::Internet.email,
+  description: "A full-service B2B agency in Neuss is looking for a creative UX/UI Designer to design websites, apps, and digital campaigns while collaborating with clients and teams, offering hybrid work, 30 vacation days, and a supportive work environment.",
+  source: "https://www.bkomm.media/2025/09/ui-ux-designer-m-w-d-gesucht/",
+  category: "UX/UI Design",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 8
+Gig.create!(
+  title: "Webdesigner (m/w/d)",
+  contact: Faker::Internet.email,
+  description: "CP2 Werbeagentur in Altenstadt is seeking a full-time on-site Web Designer/Developer skilled in WordPress, Elementor, and UX/UI to design and implement modern, responsive websites while collaborating with the creative team.",
+  source: "https://cp-2.com/jobs/webdesigner/",
+  category: "Web Design",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 8
+Gig.create!(
+  title: "Webdesigner (m/w/d)",
+  contact: Faker::Internet.email,
+  description: "CP2 Werbeagentur in Altenstadt is seeking a full-time on-site Web Designer/Developer skilled in WordPress, Elementor, and UX/UI to design and implement modern, responsive websites while collaborating with the creative team.",
+  source: "https://cp-2.com/jobs/webdesigner/",
+  category: "Web Design",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
 
 
 puts "Creating admin user..."
