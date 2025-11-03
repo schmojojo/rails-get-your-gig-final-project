@@ -125,15 +125,103 @@ Gig.create!(
 
 # Number 8
 Gig.create!(
-  title: "Webdesigner (m/w/d)",
+  title: "Marketing Manager (all genders)",
   contact: Faker::Internet.email,
-  description: "CP2 Werbeagentur in Altenstadt is seeking a full-time on-site Web Designer/Developer skilled in WordPress, Elementor, and UX/UI to design and implement modern, responsive websites while collaborating with the creative team.",
-  source: "https://cp-2.com/jobs/webdesigner/",
-  category: "Web Design",
+  description: "JAAI Group is seeking a creative, versatile marketing professional to design campaigns, corporate materials, social media content, and manage SEA activities for multiple AI and tech subsidiaries in a dynamic, collaborative environment.",
+  source: "https://jaai.jobs.personio.de/job/2391872?display=de&language=de&pid=4f6ef8b5-f939-4f87-af2c-a2c52531b62a&it=6rqGWHorRphKeBccjmuniA",
+  category: "Marketing",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 9
+Gig.create!(
+  title: "Tech Lead Frontend",
+  contact: Faker::Internet.email,
+  description: "SMG Swiss Marketplace Group is looking for a hands-on Tech Lead with expertise in TypeScript, React, and Next.js to guide a cross-functional team, shape architecture, and deliver scalable web and hybrid app products in a hybrid Belgrade-based environment.",
+  source: "https://www.wearedevelopers.com/en/companies/3301/smg-swiss-marketplace-group/47841/tech-lead-frontend",
+  category: "Frontend",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
 
+# Number 10
+Gig.create!(
+  title: "IT-Risikomanager (m/w/d)",
+  contact: Faker::Internet.email,
+  description: "Dirk Rossmann GmbH is seeking an IT Risk & Compliance specialist to develop and implement IT risk strategies, support teams in risk assessment, and ensure governance in a hybrid Burgwedel-based role.",
+  source: "https://www.wearedevelopers.com/en/companies/3538/dirk-rossmann-gmbh/47837/it-risikomanager-m-w-d",
+  category: "IT",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 11
+Gig.create!(
+  title: "(Senior) UX Designer (m/w/d)",
+  contact: Faker::Internet.email,
+  description: "Vialytics is looking for an experienced UX/UI Product Designer to create intuitive, high-quality digital experiences for their road management SaaS platform, working collaboratively in a hybrid Stuttgart-based role.",
+  source: "https://career.vialytics.com/jobs/6469441-senior-ux-designer-m-w-d",
+  category: "UX/UI Design",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 12
+Gig.create!(
+  title: "UX/UI-DesignerIn (m/w/d)",
+  contact: Faker::Internet.email,
+  description: "OUTERMEDIA is seeking an experienced UX/UI Designer to create user-centered digital experiences for cultural and educational web and app projects, collaborating in a flexible Berlin-based role.",
+  source: "https://www.outermedia.de/uxui-designerin-mwd",
+  category: "UX/UI Design",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 13
+Gig.create!(
+  title: "(Senior) IT-Auditor (w/m/d)",
+  contact: Faker::Internet.email,
+  description: "B. Braun SE is hiring an experienced IT Auditor to lead risk-based audits and advisory activities in IT processes, security, and compliance, with international travel and hybrid work options in Melsungen, Germany.",
+  source: "https://www.wearedevelopers.com/en/companies/1611/tech-jobs/47765/senior-it-auditor-w-m-d",
+  category: "IT",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 14
+Gig.create!(
+  title: "Web Developer E-Mail-Marketing",
+  contact: Faker::Internet.email,
+  description: "Entergon is looking for a web-savvy E-Mail/Marketing Automation specialist to create and manage modern email templates, landing pages, and campaigns while working closely with clients in a flexible, hybrid environment.",
+  source: "https://www.stepstone.de/stellenangebote--Web-Developer-E-Mail-Marketing-Marketing-Automation-m-w-d-Friedrichsdorf-entergon-GmbH-Co-KG--12614619-inline.html?cid=partner_designmadeingermany___SP",
+  category: "Marketing",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 15
+Gig.create!(
+  title: "Senior Database Administrator",
+  contact: Faker::Internet.email,
+  description: "The company is seeking a Senior Database Administrator with 5+ years of multi-platform experience to ensure the performance, reliability, security, and scalability of enterprise databases while leading technical projects and mentoring teams.",
+  source: "https://www.eurotechjobs.com/job_display/282589/Senior_Database_Administrator_ATT_Bratislava_Slovakia",
+  category: "Data",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 16
+Gig.create!(
+  title: "Lead Data Governance Engineer",
+  contact: Faker::Internet.email,
+  description: "Apple is seeking a Data Governance Engineer to design, implement, and maintain scalable data governance frameworks and analytics solutions that ensure data integrity, privacy, and actionable insights across the company.",
+  source: "https://www.eurotechjobs.com/job_display/282534/Lead_Data_Governance_Engineer_Apple_Dublin_Ireland",
+  category: "Data",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 17
+Gig.create!(
+  title: "Senior JavaScript Developer (React, Next.js)",
+  contact: Faker::Internet.email,
+  description: "A company is looking for a Senior JavaScript Developer with expertise in Next.js, React, and TypeScript to design, build, and maintain scalable, responsive web interfaces while mentoring team members and participating in the full development lifecycle.",
+  source: "https://www.eurotechjobs.com/job_display/282473/Senior_JavaScript_Developer_React_Nextjs_Sirma_Group_Sofia_Varna_Kazanlak_Ruse_or_Remote_Bulgaria",
+  category: "Data",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
 
 puts "Creating admin user..."
 
