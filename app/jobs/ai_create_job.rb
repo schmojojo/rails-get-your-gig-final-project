@@ -13,7 +13,7 @@ class AiCreateJob < ApplicationJob
 
   PROMPT
 
-  def perform(instructions)
+  def perform
     jobs = fetch_jobs
     ai_jobs = build_ai_jobs(jobs)
     instructions = build_instructions(ai_jobs)
@@ -41,13 +41,10 @@ class AiCreateJob < ApplicationJob
     request = Net::HTTP::Post.new(url)
     request["Content-Type"] = 'application/json'
     request["Authorization"] = ENV["BEARER"]
-    request.body = {
-      page: 0,
-      limit: 25,
-      job_country_code_or: ["US"],
-      posted_at_max_age_days: 7
-    }.json
+    request.body = "{\"page\": 0,\n  \"limit\": 25,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
+    p request
     response = http.request(request)
+    p response
     JSON.parse(response.body)["data"]
   end
 

@@ -33,8 +33,8 @@ class GigPolicy < ApplicationPolicy
     user&.admin?
   end
 
-  def ai_create?
-    user&.admin?
+  def fetch_jobs?
+    true
   end
 
   class Scope < ApplicationPolicy::Scope
