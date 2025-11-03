@@ -223,6 +223,76 @@ Gig.create!(
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
+# Number 18
+Gig.create!(
+  title: "Expert Full Stack Engineer",
+  contact: Faker::Internet.email,
+  description: "A company is seeking an Expert Full Stack Engineer to lead a small team, develop scalable frontend and backend solutions using modern AI and cloud technologies, drive technical decisions, and mentor engineers.",
+  source: "https://www.eurotechjobs.com/job_display/282431/Expert_Full_Stack_Engineer_Ciklum_Remote_Poland",
+  category: "Full Stack",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 19
+Gig.create!(
+  title: "(Senior) Backend Web Developer",
+  contact: Faker::Internet.email,
+  description: "A company is seeking a Senior Backend Web Developer to build and maintain scalable web backend systems, APIs, and workflows for a 3D XR frontline platform while collaborating in a modern development environment.",
+  source: "https://www.eurotechjobs.com/job_display/281046/Senior_Backend_Web_Developer_TeamViewer_Porto_Portugal",
+  category: "Backend",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 20
+Gig.create!(
+  title: "Backend Java Developer",
+  contact: Faker::Internet.email,
+  description: "Ubisoft Barcelona Mobile is looking for a Backend Java Developer to build and maintain scalable server systems for live mobile games, collaborating with teams to support millions of players worldwide.",
+  source: "https://www.eurotechjobs.com/job_display/282773/Backend_Java_Developer_Ubisoft_Barcelona_Spain",
+  category: "Backend",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 21
+Gig.create!(
+  title: "Data Scientist",
+  contact: Faker::Internet.email,
+  description: "The company is seeking a Data Scientist with strong software engineering skills to develop, deploy, and maintain scalable machine learning solutions across business functions.",
+  source: "https://www.eurotechjobs.com/job_display/282716/Data_Scientist_Pirelli_Bari_Italy",
+  category: "Data",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 22
+Gig.create!(
+  title: "Frontend Engineer (all genders)",
+  contact: Faker::Internet.email,
+  description: "Avelios is hiring a (Senior) Frontend Engineer in Munich to develop intuitive, scalable digital interfaces for hospitals using React, TypeScript, or Swift.",
+  source: "https://www.linkedin.com/jobs/search?keywords=frontend&location=Munich&geoId=100477049&trk=public_jobs_jobs-search-bar_search-submit&position=1&pageNum=0",
+  category: "Frontend",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 23
+Gig.create!(
+  title: "IT Administrator - Junior",
+  contact: Faker::Internet.email,
+  description: "An owner-operated IT services company is hiring an IT Administrator to plan, manage, and support client infrastructure and cloud solutions, offering €40,000–€45,000/year.",
+  source: "https://de.linkedin.com/jobs/view/it-administrator-junior-at-oppcourt-4317218340?position=4&pageNum=0&refId=atoWJKmAJ3YT2srLGuxkaA%3D%3D&trackingId=xeMtNEw9m6ZDeZgySdgapQ%3D%3D",
+  category: "IT",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+# Number 24
+Gig.create!(
+  title: "IT-Architect (m/w/d)",
+  contact: Faker::Internet.email,
+  description: "Deutsche Fachpflege Holding is hiring an IT Architect to design, modernize, and secure IT infrastructure and systems while advising leadership, with hybrid work options across several German cities.",
+  source: "https://www.wearedevelopers.com/en/companies/3038/personalwerk-gmbh/47759/it-architekt-in-m-w-d",
+  category: "IT",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
 puts "Creating admin user..."
 
 admin_user = User.find_or_initialize_by(email: 'admin@getyourgigs.work')
