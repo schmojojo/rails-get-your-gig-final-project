@@ -48,7 +48,7 @@ Gig.create!(
   contact: Faker::Internet.email,
   description: "Wilken Software Group seeks an experienced Platform, SRE, or DevOps Engineer to enhance its cloud architecture with Kubernetes, Terraform, GitOps, and Azure in an agile, flexible, and innovative environment.",
   source: "https://www.wearedevelopers.com/en/companies/3832/wilken-gmbh/47336/senior-devops-engineer-m-w-d",
-  category: DevOps,
+  category: "DevOps",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
@@ -57,7 +57,7 @@ Gig.create!(
   contact: Faker::Internet.email,
   description: "Wilken Software Group seeks an experienced Technology Lead to define scalable software architectures, drive agile transformation, and empower cross-functional teams while shaping the company’s technological vision and strategy.",
   source: "https://www.wearedevelopers.com/en/companies/3832/wilken-gmbh/37937/technology-lead-erp-billing-m-w-d",
-  category: Full Stack,
+  category: "Full Stack",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
@@ -66,7 +66,7 @@ Gig.create!(
   contact: Faker::Internet.email,
   description: "TGW Logistics GmbH seeks a Full-Stack Developer skilled in HTML, Vue.js, TypeScript, and .NET to design and develop end-to-end software solutions in an agile, collaborative, and flexible work environment.",
   source: "https://www.wearedevelopers.com/en/companies/4095/jobaffairs/47861/full-stack-developer",
-  category: Full Stack,
+  category: "Full Stack",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
@@ -75,7 +75,7 @@ Gig.create!(
   contact: Faker::Internet.email,
   description: "TGW Logistics GmbH seeks an Embedded Software Engineer to design and develop firmware for embedded systems using C/C++, Python, and Embedded Linux within an agile and innovative environment.",
   source: "https://www.wearedevelopers.com/en/companies/4095/jobaffairs/47859/software-developer-embedded-systems",
-  category: Backend,
+  category: "Backend",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
@@ -83,8 +83,17 @@ Gig.create!(
   title: "DevOps Engineer (m/w/d)",
   contact: Faker::Internet.email,
   description: "Deichmann SE is looking for a DevOps Engineer to design, automate, and manage cloud infrastructures and CI/CD pipelines remotely within Germany, using tools like Python, Ansible, Terraform, Docker, and Kubernetes.",
-  source: "https://www.wearedevelopers.com/en/companies/4095/jobaffairs/47859/software-developer-embedded-systems",
-  category: DevOps,
+  source: "https://www.wearedevelopers.com/en/companies/3227/deichmann-se/45900/devops-engineer-m-w-d",
+  category: "DevOps",
+  date: Faker::Date.between(from: Date.today - 7, to: Date.today)
+)
+
+Gig.create!(
+  title: "Frontend Developer (Angular)",
+  contact: Faker::Internet.email,
+  description: "Picnic Technologies is seeking an experienced Angular frontend developer to build and maintain internal applications supporting their automated grocery operations on-site in Amsterdam.",
+  source: "https://www.wearedevelopers.com/en/companies/3853/picnic-technologies/47843/frontend-developer-angular",
+  category: "Frontend",
   date: Faker::Date.between(from: Date.today - 7, to: Date.today)
 )
 
