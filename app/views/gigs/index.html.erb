@@ -1,3 +1,5 @@
+
+
 <div class="container mt-5">
   <h1 class="mb-4 text-center">Available freelancing Gigs</h1>
   <div class="mb-5 text-center">
@@ -60,9 +62,14 @@
     <% end %>
   <% end %>
 
+  <div class="m-5"></div>
+
+  <%= paginate @gigs %>
+  <%# <%= paginate @gigs, params: params.permit(:query, categories: []) %>
+  <div class="p-3"></div>
+
   <turbo-frame id="gigs-list">
-    <div class="m-5"></div>
-    <div class="p-2"></div>
+
 
     <% if @gigs.any? %>
       <div class="row">
@@ -103,6 +110,7 @@
                   </div>
                 <% end %>
               </div> </div> <% end %> <% end %> </div> <% else %>
+
       <div class="text-center my-5">
         <p class="text-muted fs-5">
           <i class="fa fa-search"></i>
@@ -111,4 +119,7 @@
       </div>
       <div class="m-5 pb-5"></div>
       <div class="m-5 pb-5"></div>
-    <% end %> </turbo-frame> </div> ```
+    <% end %>
+    </turbo-frame>
+    <%= paginate @gigs %>
+    </div> ```

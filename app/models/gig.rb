@@ -1,5 +1,6 @@
 class Gig < ApplicationRecord
   include PgSearch::Model
+  # paginates_per 24
 
   has_many :bookmarks, dependent: :destroy
   has_many :users, through: :bookmarks
