@@ -85,6 +85,41 @@
   }
 }
 
+// Button secondary
+
+.btn-outline-secondary {
+  font-weight: 700 !important;
+  padding: 4px 12px !important;
+  // background-color: $english-violet !important;
+  border-color: $majorelle-blue !important;
+  color: $majorelle-blue!important;
+  border: 2px solid $majorelle-blue !important;
+
+  &:hover {
+    color: #ffffff !important;
+    background-color: $majorelle-blue !important;
+  }
+
+}
+
+.btn-outline-danger {
+  font-weight: 700 !important;
+  padding: 4px 12px !important;
+  border: 2px solid !important;
+
+   &:hover {
+    color: #ffffff !important;
+    border: 2px solid #fd1015 !important;
+  }
+
+}
+
+.btn-success {
+  font-weight: 500 !important;
+  color: $english-violet !important;
+}
+
+
 // Custom Card styles
 .card {
   border: $card-border !important;
@@ -96,6 +131,12 @@
     transform: translateY(-3px) !important;
     box-shadow: $card-box-shadow-hover !important;
   }
+
+}
+
+.card-home {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
 }
 
 .card-purple {
@@ -103,6 +144,8 @@
   background-color: $deep-purple;
   color: white;
   border-radius: 12px;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
 
   h2, h3 {
     color: white;
@@ -291,4 +334,35 @@
   width: 200px;
   background-color: white;
   align-self: center;
+}
+
+// Container Profile
+.container-profile {
+  padding: 48px !important;
+}
+
+
+// Alert rounded edges
+.alert-rounded-edges {
+  border-radius: 12px !important;
+}
+
+// Edit Gig and New Gig Form Styling
+#new_gig {
+
+  .edit-gig-h {
+    display: none !important;
+  }
+  form {
+    border-radius: 12px !important;
+  }
+}
+
+.edit-gig-h {
+    color: $english-violet !important;
+  }
+
+// Background for forms
+.bg-light {
+  background-color: $magnolia !important;
 }

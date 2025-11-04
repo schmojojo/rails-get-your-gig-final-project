@@ -7,13 +7,7 @@
   </div>
   <div class="m-5"></div>
 
-  <%= turbo_frame_tag "new_gig" do %>
-    <% if policy(Gig).new? %>
-      <div class="text-center mb-5">
-        <%= link_to 'Create new Gig', new_gig_path, class: 'btn btn-success btn-lg' %>
-      </div>
-    <% end %>
-  <% end %>
+
 
 <%= form_with url: gigs_path,
                 method: :get,
@@ -55,10 +49,20 @@
       </div>
     </div>
   <% end %>
+  <div class="m-5"></div>
+  <div class="p-2"></div>
 
+  <%= turbo_frame_tag "new_gig" do %>
+    <% if policy(Gig).new? %>
+      <div class="text-center">
+        <%= link_to '+ Create new Gig', new_gig_path, class: 'btn btn-success btn-lg' %>
+      </div>
+    <% end %>
+  <% end %>
 
   <turbo-frame id="gigs-list">
-    <div class="m-5 pb-5"></div>
+    <div class="m-5"></div>
+    <div class="p-2"></div>
 
     <% if @gigs.any? %>
       <div class="row">
@@ -68,7 +72,7 @@
             <div class="card shadow-sm h-100">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title mb-2">
-                  <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none">
+                  <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none" target="_blank">
                     <%= gig.title %>
                   </a>
                 </h5>
