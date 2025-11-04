@@ -3,6 +3,10 @@ class UserPolicy < ApplicationPolicy
     user&.admin?
   end
 
+  def toggle_admin?
+    user.admin? && user != record
+  end
+
   def show?
     user == record
   end
