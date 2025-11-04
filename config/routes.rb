@@ -29,8 +29,8 @@ Rails.application.routes.draw do
   delete "/profile",    to: "bookmarks#destroy"
 
   resources :gigs
-  # Defines the root path route ("/")
-  # root "posts#index"
+  resources :users, only: :index
+
   authenticate :user, ->(u) { u.admin? } do
     mount MissionControl::Jobs::Engine, at: "/jobs"
   end
