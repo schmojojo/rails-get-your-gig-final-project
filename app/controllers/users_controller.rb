@@ -1,6 +1,18 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @users = policy_scope(User)
+  end
+
+  def toggle_admin
+    @user = User.find(params[:id])
+    authorize @user, :toggle_admin?
+
+    @user.toggle!(:admin)
+    redirect_to users_path, notice: "Updated role for #{@user.email}."
+  end
+
   def show
     @user = current_user
     authorize @user

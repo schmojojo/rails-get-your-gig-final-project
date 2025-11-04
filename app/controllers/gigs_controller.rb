@@ -15,6 +15,8 @@ class GigsController < ApplicationController
     if params[:categories].present?
       @gigs = @gigs.where(category: params[:categories])
     end
+
+    @gigs = @gigs.page(params[:page]).per(24)  # Kaminari pagination
   end
 
   def show

@@ -1,4 +1,12 @@
 class UserPolicy < ApplicationPolicy
+  def index?
+    user&.admin?
+  end
+
+  def toggle_admin?
+    user.admin? && user != record
+  end
+
   def show?
     user == record
   end
@@ -22,4 +30,15 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     user == record
   end
+
+  class Scope < ApplicationPolicy::Scope
+    def resolve
+      if user.admin?
+        scope.all
+       else
+         scope.none
+      end
+    end
+  end
+
 end
