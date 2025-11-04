@@ -1,0 +1,17 @@
+<h1>Hello <%= @subscriber.first_name %>!</h1>
+
+<p>Here are the 10 most recent jobs from this week:</p>
+
+<ul>
+  <% @gigs.each do |gig| %>
+    <li>
+      <strong><%= gig.title %></strong> - <%= gig.date.strftime("%b %d, %Y") %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <a href="<%= root_url %>">
+    <button>Visit our Homepage</button>
+  </a>
+</p>
