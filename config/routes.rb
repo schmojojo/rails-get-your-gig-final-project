@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   resources :gigs
   resources :users, only: :index
 
+  patch 'users/:id/toggle_admin', to: 'users#toggle_admin', as: :toggle_admin_user
+
   authenticate :user, ->(u) { u.admin? } do
     mount MissionControl::Jobs::Engine, at: "/jobs"
   end
