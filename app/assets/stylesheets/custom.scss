@@ -86,6 +86,21 @@
 }
 
 // Button secondary
+.btn-secondary {
+  background-color: $bright-purple !important;
+  border-color: $bright-purple !important;
+  color: $majorelle-blue !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  border-radius: 50rem !important; // optional: fully rounded pill
+  transition: all 0.2s ease !important;
+
+  &:hover {
+    background-color: darken($bright-purple, 10%) !important;
+    border-color: darken($bright-purple, 10%) !important;
+    color: $majorelle-blue !important;
+  }
+}
 
 .btn-outline-secondary {
   font-weight: 700 !important;
