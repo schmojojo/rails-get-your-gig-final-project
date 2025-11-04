@@ -15,6 +15,8 @@ class GigsController < ApplicationController
     if params[:categories].present?
       @gigs = @gigs.where(category: params[:categories])
     end
+
+    @gigs = @gigs.page(params[:page]).per(24)  # Kaminari pagination
   end
 
   def show
@@ -57,23 +59,6 @@ end
     authorize @gig
     @gig.destroy
     redirect_to gigs_path
-  end
-
-  def fetch_jobs
-    url = URI("https://api.theirstack.com/v1/jobs/search")
-
-    http = Net::HTTP.new(url.host, url.port)
-    http.use_ssl = true
-
-    request = Net::HTTP::Post.new(url)
-    request["Content-Type"] = 'application/json'
-    request["Authorization"] = ENV["BEARER"]
-    request.body = "{\"page\": 0,\n  \"limit\": 25,\n  \"job_country_code_or\": [\n    \"US\"\n  ],\n  \"posted_at_max_age_days\": 7}"
-    p request
-    response = http.request(request)
-    p response
-    gigs = JSON.parse(response.body)["data"]
-    raise
   end
 
   private

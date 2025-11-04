@@ -1,3 +1,5 @@
+
+
 <div class="container mt-5">
   <h1 class="mb-4 text-center">Available freelancing Gigs</h1>
   <div class="mb-5 text-center">
@@ -7,13 +9,7 @@
   </div>
   <div class="m-5"></div>
 
-  <%= turbo_frame_tag "new_gig" do %>
-    <% if policy(Gig).new? %>
-      <div class="text-center mb-5">
-        <%= link_to 'Create new Gig', new_gig_path, class: 'btn btn-success btn-lg' %>
-      </div>
-    <% end %>
-  <% end %>
+
 
 <%= form_with url: gigs_path,
                 method: :get,
@@ -55,10 +51,25 @@
       </div>
     </div>
   <% end %>
+  <div class="m-5"></div>
+  <div class="p-2"></div>
 
+  <%= turbo_frame_tag "new_gig" do %>
+    <% if policy(Gig).new? %>
+      <div class="text-center">
+        <%= link_to '+ Create new Gig', new_gig_path, class: 'btn btn-success btn-lg' %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="m-5"></div>
+
+  <%= paginate @gigs %>
+  <%# <%= paginate @gigs, params: params.permit(:query, categories: []) %>
+  <div class="p-3"></div>
 
   <turbo-frame id="gigs-list">
-    <div class="m-5 pb-5"></div>
+
 
     <% if @gigs.any? %>
       <div class="row">
@@ -68,7 +79,7 @@
             <div class="card shadow-sm h-100">
               <div class="card-body d-flex flex-column">
                 <h5 class="card-title mb-2">
-                  <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none">
+                  <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none" target="_blank">
                     <%= gig.title %>
                   </a>
                 </h5>
@@ -99,6 +110,7 @@
                   </div>
                 <% end %>
               </div> </div> <% end %> <% end %> </div> <% else %>
+
       <div class="text-center my-5">
         <p class="text-muted fs-5">
           <i class="fa fa-search"></i>
@@ -107,4 +119,8 @@
       </div>
       <div class="m-5 pb-5"></div>
       <div class="m-5 pb-5"></div>
-    <% end %> </turbo-frame> </div> ```
+    <% end %>
+    </turbo-frame>
+    <div class="p-1"></div>
+    <%= paginate @gigs %>
+    </div> ```

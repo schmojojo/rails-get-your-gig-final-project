@@ -1,5 +1,5 @@
-<%= form_with(model: gig, class: "p-4 border rounded-3 bg-light") do |form| %>
-
+<%= form_with(model: gig, class: "p-4 border rounded-3 bg-light card") do |form| %>
+  <h5 class="edit-gig-h mb-4 text-start">Edit Gig</h1>
   <% if gig.errors.any? %>
     <div class="alert alert-danger">
       <h2><%= pluralize(gig.errors.count, "error") %> prevented this gig from being saved:</h2>
