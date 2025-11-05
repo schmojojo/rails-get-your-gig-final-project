@@ -188,6 +188,119 @@
   }
 }
 
+// Navbar styles
+// .navbar {
+//   margin-top: 16px !important;
+//   margin-bottom: 16px !important;
+//   background-color: transparent !important;
+//   box-shadow: none !important; /* optional: removes any shadow */
+//   gap: auto !important;
+// }
+// .navbar-brand{
+//   background-color: white !important;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+//   padding: 16px !important;
+//   line-height: normal !important;
+//   border-radius: $card-border-radius !important;
+//   box-shadow: $card-box-shadow !important;
+//   margin-right: auto !important;
+// }
+
+// .navbar-nav {
+//   margin-left: 0px !important;
+// }
+
+// #mainNavbar {
+//   display: flex !important;
+//   justify-content: flex-end !important;
+//   background-color: white !important;
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+//   padding: 16px !important;
+//   border-radius: $card-border-radius !important;
+//   box-shadow: $card-box-shadow !important;
+//   margin-left: 100px !important;
+//   flex-wrap: 1 !important;
+// }
+
+// .navbar-brand::before {
+//   content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-51%, 13%); /* Centers exactly */
+//   width: 100%;
+//   height: 100%;
+//   background-image: url('/assets/graphics/logo_getyourgig.png');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   // z-index: -1;
+//   // pointer-events: none;
+// }
+
+// Styles for Text with Background Images
+.span-freelancing {
+  position: relative;
+  display: inline-block; /* ✅ makes sure width/height wrap around text */
+  z-index: 0; /* ✅ ensures ::before sits behind text but above background */
+}
+
+.span-freelancing::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* ✅ place near bottom of text */
+  transform: translateX(-60%) translateY(15%); /* ✅ centers horizontally, moves below text */
+  width: 90%;  /* ✅ slightly wider for stylistic underline */
+  height: 90%; /* adjust as needed */
+  background-image: url('/assets/graphics/Vector_28.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.span-works {
+  position: relative;
+  display: inline-block; /* ✅ makes sure width/height wrap around text */
+  z-index: 0; /* ✅ ensures ::before sits behind text but above background */
+}
+
+.span-works::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* ✅ place near bottom of text */
+  transform: translateX(-45%) translateY(27%); /* ✅ centers horizontally, moves below text */
+  width: 100%;  /* ✅ slightly wider for stylistic underline */
+  height: 100%; /* adjust as needed */
+  background-image: url('/assets/graphics/Vector_15.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+.footer-section .container h1 .newsletter::before
+{
+	content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-51%, 13%); /* Centers exactly */
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/graphics/Vector_26.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
+}
+
 // Nav Item styles
 .navbar .nav-link {
   font-size: $nav-item-font-size !important;
@@ -435,3 +548,75 @@
 .bg-light {
   background-color: $magnolia !important;
 }
+
+// Custom SCSS
+
+// PATH TO IMAGE
+// http://localhost:3000/assets/graphics/Vector_26.png <- working in browser
+// app/assets/images/graphics/Vector_26.png <- relative path
+// /Users/johanneshofmann/code/schmojojo/rails-get-your-gig-final-project/app/assets/images/graphics/Vector_26.png <- absolute path
+
+// .footer-section .container h1
+// {
+// 	color: white !important;
+// }
+
+.footer-section .container h1 .newsletter
+{
+	// font-family:'Axalp Extrabold', Arial, sans-serif !important;
+	// font-weight: normal !important;
+	// color: white !important;
+	z-index: 0;
+	display: inline-block;
+	position: relative;
+	overflow: visible;
+}
+.footer-section .container h1 .newsletter::before
+{
+	content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-51%, 13%); /* Centers exactly */
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/graphics/Vector_26.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
+}
+
+// Example:
+// .h2home
+// {
+// 	color: white !important;
+// }
+
+// .h2home .well-crafted
+// {
+// 	font-family:'Axalp Extrabold', Arial, sans-serif !important;
+// 	font-weight: normal !important;
+// 	color: white !important;
+// 	z-index: 0;
+// 	display: inline-block;
+// 	position: relative;
+// 	overflow: visible;
+// }
+// .h2home .well-crafted::before
+// {
+// 	content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-51%, -3%); /* Centers exactly */
+//   width: 100%;
+//   height: 100%;
+//   background-image: url('https://buerohofmann.com/wp-content/uploads/2025/06/12_words_markup.svg');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   z-index: -1;
+//   pointer-events: none;
+// }
