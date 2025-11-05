@@ -107,9 +107,18 @@
 
                     <%= link_to 'Delete', gig_path(gig), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this?' }, class: 'btn btn-sm btn-outline-danger' %>
 
+                    <div id="gig_bookmark_<%= gig.id %>">
+                      <%= render 'gigs/bookmark_button', gig: gig %>
+                    </div>
+                     <%#= render 'bookmark_button', gig: gig %>
                   </div>
                 <% end %>
-              </div> </div> <% end %> <% end %> </div> <% else %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+    <% else %>
 
       <div class="text-center my-5">
         <p class="text-muted fs-5">
