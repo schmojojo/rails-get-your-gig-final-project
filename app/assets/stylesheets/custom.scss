@@ -600,6 +600,45 @@
   pointer-events: none;
 }
 
+// Bookmarks
+
+.gig_bookmark_ {
+  font-size: 2rem !important;
+  color: $majorelle-blue !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+}
+.fa-regular {
+  color: $majorelle-blue !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+}
+.fa-solid {
+  color: $majorelle-blue !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+}
+.fa-bookmark {
+  color: $majorelle-blue !important;
+  background-color: transparent !important;
+  border-radius: 12px !important;
+}
+.btn-bookmark {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.button_to {
+
+  .button {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
 // Example:
 // .h2home
 // {
