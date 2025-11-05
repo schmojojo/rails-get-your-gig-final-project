@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
 
-  get "/fetch-jobs", to: "gigs#fetch_jobs"
+
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
@@ -28,8 +28,14 @@ Rails.application.routes.draw do
   post "/profile",      to: "bookmarks#create"
   delete "/profile",    to: "bookmarks#destroy"
 
-  resources :gigs
-  resources :users, only: :index
+  resources :gigs do
+    resources :bookmarks, only: [:create, :destroy]
+  end
+
+  resources :users, only: :index do
+    resources :bookmarks, only: :index
+  end
+ 
   resources :subscribers, only: [:create]
 
   patch 'users/:id/toggle_admin', to: 'users#toggle_admin', as: :toggle_admin_user

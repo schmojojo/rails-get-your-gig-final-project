@@ -1,25 +1,28 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_gig
 
-  def new
-    @bookmark = Bookmark.new
-    authorize @bookmark
+  def index
+    @bookmarks = current_user.bookmarks.all
   end
 
   def create
-    @bookmark = Bookmark.new(bookmark_params)
-    authorize @bookmark
-    @bookmark.gig = @gig
-    @bookmark.user = current_user
-    if @bookmark.save
-      redirect_to profile_path
-    else
-      render :new, status: :unprocessable_entity
+    authorize @gig
+    @gig.bookmarks.create!(user: current_user)
+    respond_to do |format|
+      format.html { redirect_to @gig, notice: "bookmarked successfully"}
+      format.turbo_stream
     end
   end
 
-  def delete
-    @bookmark = Bookmark.find(params[:id])
-    @bookmark.destroy
+  def destroy
+    authorize @gig
+    bookmark = @gig.bookmarks.find(params[:id])
+    bookmark.destroy
+    respond_to do |format|
+      format.html { redirect_to @gig, notice: "bookmarked successfully"}
+      format.turbo_stream
+    end
   end
 
   private
