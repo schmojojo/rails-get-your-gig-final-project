@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   resources :users, only: :index do
     resources :bookmarks, only: :index
   end
+ 
+  resources :subscribers, only: [:create]
 
   patch 'users/:id/toggle_admin', to: 'users#toggle_admin', as: :toggle_admin_user
 

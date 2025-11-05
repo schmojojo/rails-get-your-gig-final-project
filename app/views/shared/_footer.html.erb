@@ -10,27 +10,28 @@
             <div class="text-center mb-4">
             </div>
 
-            <%= form_with url: "#", method: :post, local: true do |f| %>
+            <%= form_with model: Subscriber.new, url: subscribers_path, local: true do |f| %>
               <div class="row g-3">
                 <div class="text-start col-md-6">
                   <%= f.label :first_name, class: "form-label" %>
-                  <%= f.text_field :first_name, class: "form-control form-control-lg", required: true %>
+                  <%= f.text_field :first_name, placeholder: "Jean", class: "form-control form-control-lg", required: true %>
                 </div>
                 <div class="text-start col-md-6">
                   <%= f.label :last_name, class: "form-label" %>
-                  <%= f.text_field :last_name, class: "form-control form-control-lg", required: true %>
+                  <%= f.text_field :last_name, placeholder: "van Freelance", class: "form-control form-control-lg", required: true %>
                 </div>
               </div>
 
               <div class="text-start mt-3">
                 <%= f.label :email, class: "form-label" %>
-                <%= f.email_field :email, class: "form-control form-control-lg", required: true %>
+                <%= f.email_field :email, placeholder: "jean@workingdeveloper.com", class: "form-control form-control-lg", required: true %>
               </div>
 
               <div class="text-center mt-4">
-                <%= f.submit "Mail me my Gigs", class: "btn btn-primary btn-lg" %>
+                <%= f.submit "Mail me my gigs", class: "btn btn-primary" %>
               </div>
             <% end %>
+
           </div>
         </div>
       </div>
