@@ -1,5 +1,7 @@
 class GigsController < ApplicationController
+  before_action :set_gig, only: [:show, :edit, :update, :destroy, :toggle_bookmark]
   skip_before_action :authenticate_user!, only: [:index]
+
   require 'net/http'
   require 'uri'
   require 'json'
@@ -20,7 +22,6 @@ class GigsController < ApplicationController
   end
 
   def show
-    @gig = Gig.find(params[:id])
     authorize @gig              # <-- call policy show?
   end
 
@@ -40,12 +41,10 @@ class GigsController < ApplicationController
   end
 
   def edit
-    @gig = Gig.find(params[:id])
     authorize @gig
   end
 
 def update
-  @gig = Gig.find(params[:id])
   authorize @gig
   if @gig.update(gig_params)
     redirect_to gigs_path, notice: "Gig was successfully updated."
@@ -55,13 +54,16 @@ def update
 end
 
   def destroy
-    @gig = Gig.find(params[:id])
     authorize @gig
     @gig.destroy
     redirect_to gigs_path
   end
 
   private
+
+  def set_gig
+    @gig = Gig.find(params[:id])
+  end
 
   def gig_params
     params.require(:gig).permit(:title, :contact, :description, :source, :category, :date)
