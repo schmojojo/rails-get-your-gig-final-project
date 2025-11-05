@@ -435,3 +435,75 @@
 .bg-light {
   background-color: $magnolia !important;
 }
+
+// Custom SCSS
+
+// PATH TO IMAGE
+// http://localhost:3000/assets/graphics/Vector_26.png <- working in browser
+// app/assets/images/graphics/Vector_26.png <- relative path
+// /Users/johanneshofmann/code/schmojojo/rails-get-your-gig-final-project/app/assets/images/graphics/Vector_26.png <- absolute path
+
+// .footer-section .container h1
+// {
+// 	color: white !important;
+// }
+
+.footer-section .container h1 .newsletter
+{
+	// font-family:'Axalp Extrabold', Arial, sans-serif !important;
+	// font-weight: normal !important;
+	// color: white !important;
+	z-index: 0;
+	display: inline-block;
+	position: relative;
+	overflow: visible;
+}
+.footer-section .container h1 .newsletter::before
+{
+	content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-51%, 13%); /* Centers exactly */
+  width: 100%;
+  height: 100%;
+  background-image: url('http://localhost:3000/assets/graphics/Vector_26.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+  pointer-events: none;
+}
+
+// Example:
+// .h2home
+// {
+// 	color: white !important;
+// }
+
+// .h2home .well-crafted
+// {
+// 	font-family:'Axalp Extrabold', Arial, sans-serif !important;
+// 	font-weight: normal !important;
+// 	color: white !important;
+// 	z-index: 0;
+// 	display: inline-block;
+// 	position: relative;
+// 	overflow: visible;
+// }
+// .h2home .well-crafted::before
+// {
+// 	content: "";
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-51%, -3%); /* Centers exactly */
+//   width: 100%;
+//   height: 100%;
+//   background-image: url('https://buerohofmann.com/wp-content/uploads/2025/06/12_words_markup.svg');
+//   background-size: contain;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   z-index: -1;
+//   pointer-events: none;
+// }
