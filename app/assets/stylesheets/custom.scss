@@ -196,18 +196,28 @@
 //   box-shadow: none !important; /* optional: removes any shadow */
 //   gap: auto !important;
 // }
-// .navbar-brand{
-//   background-color: white !important;
-//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-//   padding: 16px !important;
-//   line-height: normal !important;
-//   border-radius: $card-border-radius !important;
-//   box-shadow: $card-box-shadow !important;
-//   margin-right: auto !important;
+
+// .navbar-brand {
+//     display: flex !important;
+//     align-items: center !important; /* vertical alignment */
+//     justify-content: center; /* optional: horizontal alignment */
+//     background-color: $majorelle-blue !important;
+//     color: white !important;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+//     padding: 16px !important;
+//     padding-left: 16px !important;
+//     line-height: normal !important;
+//     border-radius: $card-border-radius !important;
+//     box-shadow: $card-box-shadow !important;
+//     margin-right: auto !important;
+//     height: 80px !important;
 // }
 
 // .navbar-nav {
-//   margin-left: 0px !important;
+//     margin-left: 0px !important;
+//     display: flex !important;       /* ensures items stay in a row */
+//     flex-wrap: nowrap !important;   /* prevents wrapping */
+//     align-items: center !important; /* vertical alignment if needed */
 // }
 
 // #mainNavbar {
@@ -218,7 +228,7 @@
 //   padding: 16px !important;
 //   border-radius: $card-border-radius !important;
 //   box-shadow: $card-box-shadow !important;
-//   margin-left: 100px !important;
+//   // margin-left: 100px !important;
 //   flex-wrap: 1 !important;
 // }
 
