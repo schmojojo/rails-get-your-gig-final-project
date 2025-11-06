@@ -1,8 +1,10 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_gig
+  before_action :set_gig, only: [:create, :destroy]
+  skip_after_action :verify_policy_scoped
 
   def index
+    @user = current_user
     @bookmarks = current_user.bookmarks.all
   end
 
@@ -29,5 +31,9 @@ class BookmarksController < ApplicationController
 
   def set_gig
     @gig = Gig.find(params[:gig_id])
+  end
+
+  def bookmark_params
+    params.requrire(:boomkark).permit(:user_id, :gig_id)
   end
 end

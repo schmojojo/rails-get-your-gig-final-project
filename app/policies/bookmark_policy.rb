@@ -22,3 +22,4 @@ class BookmarkPolicy < ApplicationPolicy
     scope.all
     end
   end
+end

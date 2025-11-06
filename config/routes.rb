@@ -32,10 +32,8 @@ Rails.application.routes.draw do
     resources :bookmarks, only: [:create, :destroy]
   end
 
-  resources :users, only: :index do
-    resources :bookmarks, only: :index
-  end
- 
+  resources :users, only: :index
+  resources :bookmarks, only: :index
   resources :subscribers, only: [:create]
 
   patch 'users/:id/toggle_admin', to: 'users#toggle_admin', as: :toggle_admin_user

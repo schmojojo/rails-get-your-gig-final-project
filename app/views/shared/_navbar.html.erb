@@ -12,7 +12,11 @@
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
          <li class="nav-item">
-          <%= link_to "MyGigs", gigs_path, class: "nav-link #{'active' if current_page?(gigs_path)}" %>
+          <% if current_user %>
+             <%= link_to "MyGigs", bookmarks_path, class: "nav-link #{'active' if current_page?(bookmarks_path)}" %>
+          <% else %>
+
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to "Gigs", gigs_path, class: "nav-link #{'active' if current_page?(gigs_path)}" %>
