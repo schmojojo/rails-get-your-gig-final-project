@@ -275,7 +275,8 @@
   transform: translateX(-60%) translateY(15%); /* ✅ centers horizontally, moves below text */
   width: 90%;  /* ✅ slightly wider for stylistic underline */
   height: 90%; /* adjust as needed */
-  background-image: url('/assets/graphics/Vector_28.png');
+  background-image: image-url("graphics/Vector_28.png");
+  // background-image: url('/assets/graphics/Vector_28.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -297,7 +298,8 @@
   transform: translateX(-45%) translateY(27%); /* ✅ centers horizontally, moves below text */
   width: 100%;  /* ✅ slightly wider for stylistic underline */
   height: 100%; /* adjust as needed */
-  background-image: url('/assets/graphics/Vector_15.png');
+  background-image: image-url("graphics/Vector_15.png");
+  // background-image: url('/assets/graphics/Vector_15.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -315,7 +317,8 @@
   transform: translate(-51%, 13%); /* Centers exactly */
   width: 100%;
   height: 100%;
-  background-image: url('/assets/graphics/Vector_26.png');
+  background-image: image-url("graphics/Vector_26.png");
+  // background-image: url('/assets/graphics/Vector_26.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
