@@ -169,8 +169,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_04_131458) do
     t.text "preference"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
+    t.string "first_name"
+    t.string "last_name"
   end
 
   create_table "users", force: :cascade do |t|
