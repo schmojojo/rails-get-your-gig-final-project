@@ -612,23 +612,30 @@
   color: $majorelle-blue !important;
   background-color: transparent !important;
   border-radius: 12px !important;
+  stroke-width: 2px !important;
 }
 .fa-solid {
   color: $majorelle-blue !important;
   background-color: transparent !important;
   border-radius: 12px !important;
+  stroke-width: 2px !important;
 }
 .fa-bookmark {
   color: $majorelle-blue !important;
   background-color: transparent !important;
   border-radius: 12px !important;
+  stroke-width: 2px !important;
 }
 .btn-bookmark {
   background-color: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
+  border-radius: 12px !important;
+  border: 2px !important;
+  vertical-align: middle;
 }
+
 .button_to {
 
   .button {
