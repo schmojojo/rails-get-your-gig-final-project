@@ -1,1 +1,3 @@
-<%= turbo_stream.replace "gig_bookmark_#{@gig.id}", partial: "gigs/bookmark_button", locals: { gig: @gig } %>
+<%= turbo_stream.replace "gig_bookmark_#{@gig.id}" do %>
+  <%= render 'gigs/bookmark_button', gig: @gig %>
+<% end %>

@@ -1,29 +1,35 @@
 class BookmarksController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_gig, only: [:create, :destroy]
-  skip_after_action :verify_policy_scoped
+  before_action :set_gig, only: [:create]
+  before_action :set_bookmark, only: [:destroy]
 
-  def index
+def index
+    @bookmarks = policy_scope(Bookmark)
     @user = current_user
-    @bookmarks = current_user.bookmarks.all
   end
 
   def create
-    authorize @gig
-    @gig.bookmarks.create!(user: current_user)
+    @bookmark = Bookmark.new(gig: @gig, user: current_user)
+    authorize @bookmark
+
     respond_to do |format|
-      format.html { redirect_to @gig, notice: "bookmarked successfully"}
-      format.turbo_stream
+      if @bookmark.save
+        format.turbo_stream
+        format.html { redirect_to gigs_path, notice: "Gig saved!" }
+      else
+        format.html { redirect_to gigs_path, alert: "Could not save gig." }
+      end
     end
   end
 
   def destroy
-    authorize @gig
-    bookmark = @gig.bookmarks.find(params[:id])
-    bookmark.destroy
+    authorize @bookmark
+    @gig = @bookmark.gig
+
+    @bookmark.destroy
+
     respond_to do |format|
-      format.html { redirect_to @gig, notice: "bookmarked successfully"}
       format.turbo_stream
+      format.html { redirect_to gigs_path, notice: "Gig unsaved." }
     end
   end
 
@@ -33,7 +39,7 @@ class BookmarksController < ApplicationController
     @gig = Gig.find(params[:gig_id])
   end
 
-  def bookmark_params
-    params.requrire(:boomkark).permit(:user_id, :gig_id)
+  def set_bookmark
+    @bookmark = Bookmark.find(params[:id])
   end
 end
