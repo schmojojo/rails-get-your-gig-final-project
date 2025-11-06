@@ -6,7 +6,7 @@
   <% if bookmark %>
     <%= button_to gig_bookmark_path(gig, bookmark),
                   method: :delete,
-                  class: "btn btn-sm btn-outline-danger",
+                  class: "btn btn-sm btn-purple-saved",
                   form: { data: {
                     turbo_confirm: "Are you sure you want to remove this bookmark?",
                     turbo_frame: "_top"
@@ -18,7 +18,7 @@
 
     <%= button_to gig_bookmarks_path(gig),
                   method: :create,
-                  class: "btn btn-sm btn-outline-primary",
+                  class: "btn btn-sm btn-outline-secondary",
                   form: { data: {
                     turbo_frame: "_top"
                   }} do %>
@@ -29,7 +29,7 @@
 <% else %>
 
   <%= link_to new_user_registration_path(notice: 'Please sign up to save gigs'),
-              class: "btn btn-sm btn-outline-primary",
+              class: "btn btn-sm btn-outline-secondary",
               data: { turbo_frame: "_top" } do %>
     Save <i class="fa-regular fa-bookmark"></i>
   <% end %>

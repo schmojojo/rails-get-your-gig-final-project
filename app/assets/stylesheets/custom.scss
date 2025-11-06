@@ -662,6 +662,33 @@
   }
 }
 
+.btn-purple-saved {
+  background-color: $majorelle-blue !important;
+  border-color: $majorelle-blue !important;
+  color: #ffffff !important;
+
+  font-weight: 700 !important;
+  padding: 4px 12px !important;
+  border: 2px solid $majorelle-blue !important;
+
+  i {
+    color: #ffffff !important;
+  }
+
+  &:hover {
+    background-color: darken($majorelle-blue, 10%) !important;
+    border-color: darken($majorelle-blue, 10%) !important;
+    color: #ffffff !important;
+  }
+}
+
+.btn-outline-secondary:hover {
+  color: #ffffff !important;
+  i {
+    color: #ffffff !important;
+  }
+}
+
 // Example:
 // .h2home
 // {
