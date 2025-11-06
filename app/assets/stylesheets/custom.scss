@@ -523,15 +523,16 @@
   }
 
   &:checked::after {
-    content: "\f00c";
-    font-family: "Font Awesome 5 Free"; // or your FA version
+    // content: "\f00c";
+    content: "✓";
+    font-family: "Satoshi"; // or your FA version
     font-weight: 900;        // solid icon
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%);
     color: $majorelle-blue; // your check color
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }
 
