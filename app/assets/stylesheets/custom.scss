@@ -134,8 +134,18 @@
   color: $english-violet !important;
 }
 
+// ID Gigs List container (Turbo Frame)
+#gigs-list {
+
+  .card {
+    padding: 24px !important;
+  }
+
+}
 
 // Custom Card styles
+
+
 .card {
   border: $card-border !important;
   border-radius: $card-border-radius !important;
