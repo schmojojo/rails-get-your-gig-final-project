@@ -18,6 +18,8 @@ class GigsController < ApplicationController
       @gigs = @gigs.where(category: params[:categories])
     end
 
+    @gigs = @gigs.order(date: :desc)
+
     @gigs = @gigs.page(params[:page]).per(24)  # Kaminari pagination
   end
 
