@@ -14,7 +14,7 @@ class GigPolicy < ApplicationPolicy
   end
 
   def create?
-    user&.admin?
+    user
   end
 
   def new?
@@ -30,7 +30,7 @@ class GigPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user&.admin?
+    user
   end
 
   class Scope < ApplicationPolicy::Scope
