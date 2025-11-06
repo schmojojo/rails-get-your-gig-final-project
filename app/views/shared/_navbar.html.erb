@@ -9,13 +9,12 @@
     </button>
 
     <div class="collapse navbar-collapse" id="mainNavbar">
-
+      
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-         <li class="nav-item">
+      <li class="nav-item">
           <% if current_user %>
-             <%= link_to "MyGigs", bookmarks_path, class: "nav-link #{'active' if current_page?(bookmarks_path)}" %>
+            <%= link_to "My Gigs", bookmarks_path, class: "nav-link #{'active' if current_page?(bookmarks_path)}" %>
           <% else %>
-
           <% end %>
         </li>
         <li class="nav-item">

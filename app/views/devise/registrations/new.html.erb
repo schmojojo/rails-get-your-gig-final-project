@@ -5,6 +5,21 @@
         <div class="card-body p-4 p-sm-5">
           <h2 class="card-title text-center mb-4">Sign up</h2>
 
+<% if params[:notice] %>
+  <div style="
+    background-color: #fff3cd;
+    color: #664d03;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ffecb5;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.9rem;
+  ">
+    <%= params[:notice] %>
+  </div>
+<% end %>
+
           <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= f.error_notification %>
 

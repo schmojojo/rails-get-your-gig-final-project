@@ -1,15 +1,36 @@
 <% gig = local_assigns[:gig] %>
+
 <% if current_user %>
-                      <% bookmark = current_user.bookmarks.find_by(gig_id: gig.id) %>
-                        <div id="gig_bookmark_<%= gig.id %>">
-                          <% if bookmark %>
-                            <%= button_to gig_bookmark_path(gig, bookmark), method: :delete, form: {data: { turbo_confirm: "are you sure you want to remove this bookmark?"}}, class: "btn-bookmark" do %>
-                              <i class="fa-solid fa-bookmark"></i>
-                            <% end %>
-                          <% else %>
-                            <%= button_to gig_bookmarks_path(gig), method: :create, class: "btn-bookmark" do %>
-                              <i class="fa-regular fa-bookmark"></i>
-                            <% end %>
-                          <% end %>
-                        </div>
-                     <% end %>
+  <% bookmark = current_user.bookmarks.find_by(gig_id: gig.id) %>
+
+  <% if bookmark %>
+    <%= button_to gig_bookmark_path(gig, bookmark),
+                  method: :delete,
+                  class: "btn btn-sm btn-outline-danger",
+                  form: { data: {
+                    turbo_confirm: "Are you sure you want to remove this bookmark?",
+                    turbo_frame: "_top"
+                  }} do %>
+      Saved <i class="fa-solid fa-bookmark"></i>
+    <% end %>
+
+  <% else %>
+
+    <%= button_to gig_bookmarks_path(gig),
+                  method: :create,
+                  class: "btn btn-sm btn-outline-primary",
+                  form: { data: {
+                    turbo_frame: "_top"
+                  }} do %>
+      Save <i class="fa-regular fa-bookmark"></i>
+    <% end %>
+  <% end %>
+
+<% else %>
+
+  <%= link_to new_user_registration_path(notice: 'Please sign up to save gigs'),
+              class: "btn btn-sm btn-outline-primary",
+              data: { turbo_frame: "_top" } do %>
+    Save <i class="fa-regular fa-bookmark"></i>
+  <% end %>
+<% end %>

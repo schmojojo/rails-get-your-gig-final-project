@@ -1,61 +1,61 @@
 <div class="container mt-5">
-  <h1 class="mb-4 text-center">Your <span class="span-freelancing">freelancing</span> Gigs</h1>
+  <h1 class="mb-4 text-center">My <span class="span-freelancing">saved</span> Gigs</h1>
   <div class="mb-5 text-center">
     <p class="lead fs-6">
-      Explore the latest freelancing opportunities in backend, frontend, design, IT, and more tech-related fields.
+      These are the gigs you've saved for later.
     </p>
   </div>
-    <div class="m-5"></div>
-    <div class="p-5"></div>
 
-<turbo-frame id="gigs-list">
-<div class="row my-2">
-  <% @user.gigs.each do |gig| %>
-    <% bookmark = Bookmark.find_by(user: @user, gig: gig ) %>
-    <%= turbo_frame_tag dom_id(gig), class: "col-md-4 mb-4" do %>
-      <div class="card shadow-sm h-100">
-        <div class="card-body d-flex flex-column">
-           <h5 class="card-title mb-2">
-              <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none" target="_blank">
-                <%= gig.title %>
-              </a>
-            </h5>
+  <turbo-frame id="gigs-list">
+    <div class="row my-2">
 
-            <div class="mb-2">
-              <span class="badge rounded-pill bg-primary"><%= gig.category %></span>
-            </div>
+      <% if @bookmarks.any? %>
+        <% @bookmarks.each do |bookmark| %>
+          <% gig = bookmark.gig %>
 
-             <p class="card-text flex-grow-1"><%= truncate(gig.description, length: 150) %></p>
+          <%= turbo_frame_tag dom_id(gig), class: "col-md-4 mb-4" do %>
+            <div class="card shadow-sm h-100">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title mb-2">
+                    <a href="<%= gig.source.present? ? gig.source : '#' %>" class="text-decoration-none" target="_blank">
+                      <%= gig.title %>
+                    </a>
+                  </h5>
+                  <div class="mb-2">
+                    <span class="badge rounded-pill bg-primary"><%= gig.category %></span>
+                  </div>
+                  <p class="card-text flex-grow-1"><%= truncate(gig.description, length: 150) %></p>
+                  <a href="mailto:<%= gig.contact %>" class="btn btn-outline-primary rounded-pill mb-2">
+                      Contact
+                  </a>
+                  <small class="text-muted">
+                    <i class="fa fa-calendar-alt"></i>
+                    <% if gig.date.present? %>
+                      <%= gig.date.strftime("%B %d, %Y") %>
+                    <% end %>
+                  </small>
 
-             <a href="mailto:<%= gig.contact %>" class="btn btn-outline-primary rounded-pill mb-2">
-                Contact
-             </a>
-
-              <small class="text-muted">
-                <i class="fa fa-calendar-alt"></i>
-                <% if gig.date.present? %>
-                  <%= gig.date.strftime("%B %d, %Y") %>
-                <% end %>
-               </small>
-
-              <div class="mt-3 border-top pt-3 d-flex justify-content-end gap-2">
-                <% if policy(gig).edit? %>
-
-                    <%= link_to 'Edit', edit_gig_path(gig), class: 'btn btn-sm btn-outline-secondary' %>
-
-                    <%= link_to 'Delete', gig_path(gig), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this?' }, class: 'btn btn-sm btn-outline-danger' %>
-                <% end %>
-                <% if policy(Bookmark).index? %>
+                  <div class="mt-3 border-top pt-3 d-flex justify-content-end gap-2">
+                    <% if policy(gig).edit? %>
+                        <%= link_to 'Edit', edit_gig_path(gig), class: 'btn btn-sm btn-outline-secondary' %>
+                        <%= link_to 'Delete', gig_path(gig), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this?' }, class: 'btn btn-sm btn-outline-danger' %>
+                    <% end %>
                     <div id="gig_bookmark_<%= gig.id %>">
                       <%= render 'gigs/bookmark_button', gig: gig %>
                     </div>
-                <% end %>
+                  </div>
               </div>
-         </div>
-      </div>
-     <% end %>
-  <% end %>
-  </div>
-</turbo-frame>
-
+            </div>
+          <% end %>
+        <% end %>
+      <% else %>
+        <div class="col-12 text-center my-5">
+          <p class="text-muted fs-5">
+            <i class="fa fa-bookmark"></i>
+            You haven't saved any gigs yet.
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </turbo-frame>
 </div>
