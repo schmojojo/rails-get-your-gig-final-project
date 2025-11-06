@@ -263,6 +263,30 @@
 // }
 
 // Styles for Text with Background Images
+
+.span-saved {
+  position: relative;
+  display: inline-block; /* ✅ makes sure width/height wrap around text */
+  z-index: 0; /* ✅ ensures ::before sits behind text but above background */
+}
+
+.span-saved::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* ✅ place near bottom of text */
+  transform: translateX(-50%) translateY(25%); /* ✅ centers horizontally, moves below text */
+  width: 90%;  /* ✅ slightly wider for stylistic underline */
+  height: 90%; /* adjust as needed */
+  background-image: image-url("graphics/Vector_32.png");
+  // background-image: url('/assets/graphics/Vector_28.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  z-index: -1;
+  pointer-events: none;
+}
+
 .span-freelancing {
   position: relative;
   display: inline-block; /* ✅ makes sure width/height wrap around text */
