@@ -3,11 +3,11 @@
                       <% bookmark = current_user.bookmarks.find_by(gig_id: gig.id) %>
                         <div id="gig_bookmark_<%= gig.id %>">
                           <% if bookmark %>
-                            <%= button_to gig_bookmark_path(gig, bookmark), method: :delete, form: {data: { turbo_confirm: "are you sure you want to remove this bookmark?"}} do %>
+                            <%= button_to gig_bookmark_path(gig, bookmark), method: :delete, form: {data: { turbo_confirm: "are you sure you want to remove this bookmark?"}}, class: "btn-bookmark" do %>
                               <i class="fa-solid fa-bookmark"></i>
                             <% end %>
                           <% else %>
-                            <%= button_to gig_bookmarks_path(gig), method: :create do %>
+                            <%= button_to gig_bookmarks_path(gig), method: :create, class: "btn-bookmark" do %>
                               <i class="fa-regular fa-bookmark"></i>
                             <% end %>
                           <% end %>
