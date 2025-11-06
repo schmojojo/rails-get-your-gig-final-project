@@ -38,9 +38,10 @@
     <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
       <div class="card shadow-sm h-100 border-0 w-100 text-center">
         <div class="card-body p-4">
-          <%#= image_tag "member_jan.jpg", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px;" %>
+          <%= image_tag "member_jan.png", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px; object-fit: cover;", alt: "Jan, Backend Expert" %>
           <h5 class="card-title fw-bold mt-3">Jan</h5>
-          <p class="card-text text-gray-medium">Short role / one-liner placeholder</p>
+          <p class="card-text text-secondary">Backend expert</p>
+          <p class="card-text text-gray-medium fst-italic">"I speak fluent Ruby, SQL, and 'Have you tried turning it off and on again?'"</p>
         </div>
       </div>
     </div>
@@ -48,9 +49,21 @@
     <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
       <div class="card shadow-sm h-100 border-0 w-100 text-center">
         <div class="card-body p-4">
-          <%#= image_tag "member_matthias.jpg", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px;" %>
+          <%= image_tag "member_dumitru.png", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px; object-fit: cover;", alt: "Dimi, Frontend & Product Manager" %>
+          <h5 class="card-title fw-bold mt-3">Dimi</h5>
+          <p class="card-text text-secondary">Product manager & Frontend</p>
+          <p class="card-text text-gray-medium fst-italic">"Makes things pretty and makes sure they actually get done. A rare combo."</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
+      <div class="card shadow-sm h-100 border-0 w-100 text-center">
+        <div class="card-body p-4">
+          <%= image_tag "member_matthias.png", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px; object-fit: cover;", alt: "Matthias, Automations & Sys Admin" %>
           <h5 class="card-title fw-bold mt-3">Matthias</h5>
-          <p class="card-text text-gray-medium">Short role / one-liner placeholder</p>
+          <p class="card-text text-secondary">Automations & Sys-admin</p>
+          <p class="card-text text-gray-medium fst-italic">"If a task takes more than 5 minutes, I'll spend 5 hours automating it."</p>
         </div>
       </div>
     </div>
@@ -58,19 +71,10 @@
     <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
       <div class="card shadow-sm h-100 border-0 w-100 text-center">
         <div class="card-body p-4">
-          <%#= image_tag "member_dumitru.jpg", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px;" %>
-          <h5 class="card-title fw-bold mt-3">Dumitru</h5>
-          <p class="card-text text-gray-medium">Short role / one-liner placeholder</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6 col-lg-3 d-flex align-items-stretch">
-      <div class="card shadow-sm h-100 border-0 w-100 text-center">
-        <div class="card-body p-4">
-          <%#= image_tag "member_johannes.jpg", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px;" %>
+          <%= image_tag "member_johannes.png", class: "rounded-circle img-fluid mb-3", style: "width: 120px; height: 120px; object-fit: cover;", alt: "Johannes, Creative Designer & Frontend" %>
           <h5 class="card-title fw-bold mt-3">Johannes</h5>
-          <p class="card-text text-gray-medium">Short role / one-liner placeholder</p>
+          <p class="card-text text-secondary">Creative designer & Frontend</p>
+          <p class="card-text text-gray-medium fst-italic">"I make the buttons look so good you'll *want* to click them."</p>
         </div>
       </div>
     </div>
