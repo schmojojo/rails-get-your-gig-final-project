@@ -15,4 +15,4 @@ production:
   ai_create_job:
     class: AiCreateJob
     queue: default
-    Schedule: "0 9 * * 0" # Every Sunday at 9:00 AM
+    schedule: "0 9 * * 0" # Every Sunday at 9:00 AM
